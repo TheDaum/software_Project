@@ -32,13 +32,11 @@
         border-radius: 40px;
     }
 
-    
-
     .image_box {
         position: absolute;
-        width:90%;
+        width:70%;
         height:60%;
-        margin-left:5%;
+        margin-left:15%;
         
         background-image: url("/icons8-t-셔츠-50.png");
         background-size:contain;
@@ -47,13 +45,16 @@
 
     }
     .button_box{
-        width: 85%;
-        height: 16%;
+        position:absolute;
+        width: 70%;
+        height: 20%;
+        left:15%;
         background-color: #eef7fe;
         border-radius: 20px;
+        border : 0;
     }
     .circle{
-        position : absolute;
+        position:absolute;
         width : 10%;
         height : 50%;
         border-radius : 50%;
@@ -62,24 +63,22 @@
         background-color : white;
     }
     .check_mark{
-        position : absolute;
         color : #4CE364;
         font-size : large;
         left : 35%;
-        top : 25%;
+        vertical-align: middle;
         margin : 0;
     }
     .button_box>span{
-        position : absolute;
         font-size : 1.5vmax;
-        left:20%;
-        top:20% ;
+        text-align: center;
+        vertical-align: middle;
         width:60%;
     }
     .button_box>img{
         position:absolute;
-        top:35%;
         left:85%;
+        vertical-align: middle;
     }
     .box_area:nth-child(1) {
         position: absolute;
@@ -125,26 +124,45 @@
         position: absolute;
         top: 14%;
         left: 35%;
-        height: 40%;
+        height: 34%;
     }
     .box_area:nth-child(4) {
         position: absolute;
-        top: 56%;
+        top: 50%;
         left: 35%;
-        height: 42%;
+        height: 48%;
     }
-    .box_area:nth-child(4)>.image_box{
-        width: 80%;
-        height: 70%;
-        left:5%;
-        top:10%;
-
-    }
-    .box_area:nth-child(4)>span{
-        font-size:2vmax;
+    
+    .box_area:nth-child(4)>.button_box:nth-of-type(1) {
         position: absolute;
-        top: 85%;
-        left:20%;
+        left: 7%;
+        top: 25%;
+        border : 0;
+    }
+    .box_area:nth-child(4)>.button_box:nth-of-type(2) {
+        position: absolute;
+        left: 7%;
+        top: 43%;
+        border : 0;
+    }
+    .box_area:nth-child(4)>.button_box:nth-of-type(3) {
+        position: absolute;
+        left: 7%;
+        top: 61%;
+        border : 0;
+    }
+    .box_area:nth-child(4)>.button_box:nth-of-type(4) {
+        position: absolute;
+        left: 7%;
+        top: 79%;
+        border : 0;
+    }
+    
+    .box_area:nth-child(4)>span{
+        font-size:3vmax;
+        position: absolute;
+        top:8%;
+        left:8%;
     }
     .box_area:nth-child(5) {
         position: absolute;
@@ -153,23 +171,16 @@
         height:48%;
     }
     
-    .box_area:nth-child(5)>.button_box:nth-of-type(1) {
-        position: absolute;
-        left: 10%;
+    .carousel-item>.button_box:nth-of-type(1) {
+        top: 0%;
+    }
+    .carousel-item>.button_box:nth-of-type(2) {
         top: 30%;
-        border : 0;
+        
     }
-    .box_area:nth-child(5)>.button_box:nth-of-type(2) {
-        position: absolute;
-        left: 10%;
-        top: 50%;
-        border : 0;
-    }
-    .box_area:nth-child(5)>.button_box:nth-of-type(3) {
-        position: absolute;
-        left: 10%;
-        top: 70%;
-        border : 0;
+    .carousel-item>.button_box:nth-of-type(3) {
+        top: 60%;
+        
     }
     
     .box_area:nth-child(5)>span{
@@ -244,19 +255,19 @@
 
     .box_area:nth-child(8)>.button_box:nth-of-type(1) {
         position: absolute;
-        left: 10%;
+        left: 7%;
         top: 30%;
         border : 0;
     }
     .box_area:nth-child(8)>.button_box:nth-of-type(2) {
         position: absolute;
-        left: 10%;
+        left: 7%;
         top: 50%;
         border : 0;
     }
     .box_area:nth-child(8)>.button_box:nth-of-type(3) {
         position: absolute;
-        left: 10%;
+        left: 7%;
         top: 70%;
         border : 0;
     }
@@ -267,3 +278,44 @@
         top:8%;
         left:8%;
     }
+
+    #carouselExampleDark, #carouselExampleDark2{
+        position : absolute;
+        top:25%;
+        width:100%;
+        height:75%;
+    }
+
+    .carousel-inner{
+        position:absolute;
+        width:100%;
+        height:100%;
+        padding-top:5%;
+    }
+    .carousel-indicators{
+        position:absolute;
+        top:90%;
+        left:40%;
+        /* width:50%;
+        height:10%; */
+    }
+  
+    .carousel-item{
+        position:absolute;
+        width:100%;
+        height:100%;
+    }
+    
+    .carousel-control-prev-icon{
+        position:absolute;
+        top:10vh;
+    }
+    .carousel-control-next-icon{
+        position:absolute;
+        top:10vh;
+    }
+    /* .carousel-indicators>button{
+        width:25%;
+        height:100%;
+    } */
+
