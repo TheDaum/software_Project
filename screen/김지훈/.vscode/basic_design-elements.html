@@ -2,274 +2,275 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="basic_design_element.css">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="background">
-        <div class = "box_area">
-            <div class = "image_box"></div>
+        <div class="box_area">
+            <div class="image_box"></div>
             <span>오늘 추천 옷</span>
         </div>
-        <div class = "box_area">
+        <div class="box_area">
             <span>오늘의 날씨</span>
         </div>
-        <div class = "box_area">
-            
+        <div class="box_area">
+
         </div>
-        <div class = "box_area">
+        <div class="box_area">
             <span>계절</span>
-            <button class = "button_box">
-                <div class ="circle"><p class = "check_mark">&#10004</p></div>
+            <button class="button_box">
+                <div class="circle">
+                    <p class="check_mark">&#10004</p>
+                </div>
                 <span>봄</span>
-                <img src="/김지훈/icons8-폐물-30.png"/>
-                
+
             </button>
-            <button class = "button_box">
-                <div class ="circle"><p class = "check_mark">&#10004</p></div>
+            <button class="button_box">
+                <div class="circle">
+                    <p class="check_mark">&#10004</p>
+                </div>
                 <span>여름</span>
-                <img src="/김지훈/icons8-폐물-30.png"/>
             </button>
-            <button class = "button_box">
-                <div class ="circle"><p class = "check_mark">&#10004</p></div>
+            <button class="button_box">
+                <div class="circle">
+                    <p class="check_mark">&#10004</p>
+                </div>
                 <span>가을</span>
-                <img src="/김지훈/icons8-폐물-30.png"/>
             </button>
-            <button class = "button_box">
-                <div class ="circle"><p class = "check_mark">&#10004</p></div>
+            <button class="button_box">
+                <div class="circle">
+                    <p class="check_mark">&#10004</p>
+                </div>
                 <span>겨을</span>
-                <img src="/김지훈/icons8-폐물-30.png"/>
             </button>
         </div>
-        <div class = "box_area">
+        <!-- 카테고리 메뉴 -->
+        <div class="box_area">
+            <!-- 제목 -->
             <span>카테고리</span>
+            <!-- carousel사용 -->
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                    <button class = "button_box">
+                    <!-- slide1 -->
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <!-- category1 id 는 카테고리 명으로 바꾸기   -->
                         
-                            <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                            <span>하의</span>
-                            <img src="/김지훈/icons8-폐물-30.png"/>
-                        
-                        
-                    </button>
+                        <button id = "category1" class="button_box">
 
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>상의</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category1</span>
+                        </button>
 
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>겉옷</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                    
-                  </div>
-                  <div class="carousel-item" data-bs-interval="10000">
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>하의</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                        
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>상의</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>겉옷</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="10000">
-                    <button class = "button_box">
-                        
-                            <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                            <span>하의</span>
-                            <img src="/김지훈/icons8-폐물-30.png"/>
-                                       
-                        
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>상의</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>겉옷</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                  </div>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category2</span>
+                        </button>
+
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category3</span>
+                        </button>
+
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category4</span>
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category5</span>
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category6</span>
+                        </button>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <button class="button_box">
+
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category7</span>
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category8</span>
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>category9</span>
+                        </button>
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-              </div>
-            
+            </div>
+
         </div>
-        <div class = "box_area">
-            <button id = "logout">LOG OUT</button>
-            <button id = "all_clothes">전체 옷 화면</button>
-            <button id = "closet_detail">옷장</button>
-            <button id = "category">카테고리</button>
-            <button id = "add_clothe">옷 추가</button>
+        <div class="box_area">
+            <button id="logout">LOG OUT</button>
+            <button id="all_clothes">전체 옷 화면</button>
+            <button id="closet_detail">옷장</button>
+            <button id="category">카테고리</button>
+            <button id="add_clothe">옷 추가</button>
         </div>
-        <div class = "box_area">
+        <div class="box_area">
             <span>What You Have</span>
         </div>
-        <div class = "box_area">
+        <div class="box_area">
             <span>옷장</span>
             <div id="carouselExampleDark2" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                    <button class = "button_box">
-                        
-                            <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                            <span>옷장1(기본)</span>
-                            <img src="/김지훈/icons8-폐물-30.png"/>
-                        
-                        
-                    </button>
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <button class="button_box">
 
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장2</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장3</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                    
-                  </div>
-                  <div class="carousel-item" data-bs-interval="10000">
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장1(기본)</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                        
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장2</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장3</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="10000">
-                    <button class = "button_box">
-                        
-                            <div class ="circle"><p class = "check_mark">&#10004</p></div>
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
                             <span>옷장1(기본)</span>
-                            <img src="/김지훈/icons8-폐물-30.png"/>
-                                       
-                        
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장2</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                    <button class = "button_box">
-                        <div class ="circle"><p class = "check_mark">&#10004</p></div>
-                        <span>옷장3</span>
-                        <img src="/김지훈/icons8-폐물-30.png"/>
-                    </button>
-                  </div>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+
+
+                        </button>
+
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장2</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+                        </button>
+
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장3</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+                        </button>
+
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장1(기본)</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장2</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장3</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+                        </button>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <button class="button_box">
+
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장1(기본)</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+
+
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장2</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+                        </button>
+                        <button class="button_box">
+                            <div class="circle">
+                                <p class="check_mark">&#10004</p>
+                            </div>
+                            <span>옷장3</span>
+                            <img src="/김지훈/icons8-폐물-30.png" />
+                        </button>
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark2" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark2"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark2" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark2"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-              </div>
+            </div>
         </div>
-        
+
     </div>
 </body>
 
 </html>
 <!-- import jquery -->
-<script 
-    src="https://code.jquery.com/jquery-3.6.0.min.js" 
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-    crossorigin="anonymous">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
 
-<script>
-    function logout(){
-        location.replace("../../1차screen/메인new.html");
-    }
-
-    function show_all(){
-        location.href = "전체옷.html";
-    }
-
-    function closet(){
-        location.href = "옷장_detail.html";
-    }
-
-    function category(){
-        location.href = "카테고리.html";
-    }
-
-    function add_clothe(){
-        location.href = "옷추가.html";
-    }
-</script>
-
-<script>
-    $('#logout').click(function(){ 
-        logout();
-    });
-
-    $('#all_clothes').click(function(){ 
-        show_all();
-    });
-    
-    $('#closet_detail').click(function(){ 
-        closet()
-    });
-
-    $('#category').click(function(){ 
-        category();
-    });
-
-    $('#add_clothe').click(function(){ 
-        add_clothe();
-    });
-</script>
+<script src="main.js"></script>
