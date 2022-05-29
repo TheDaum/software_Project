@@ -20,12 +20,11 @@ $('#add_clothe').click(function () {
 });
 
 $('.box_area:nth-child(5)>.carousel>.carousel-inner>.carousel-item>.button_box').click(function () {
-    location.href = "카테고리.html?tab=" + $(this).find("span").text();
+    location.href = "카테고리.html?tab=" + escape($(this).find("span").text());
 });
 $('.box_area:nth-child(8)>.carousel>.carousel-inner>.carousel-item>.button_box').click(function () {
-    var address = "옷장_detail.html?tab=" + $(this).find("span").text();
-    var encodedAddress = encodeURI(address);
-    location.href = encodedAddress;
+    var address = "옷장_detail.html?tab=" + escape($(this).find("span").text());
+    location.href = address;
 });
 function logout() {
     location.replace("../../1차screen/메인new.html");
