@@ -68,6 +68,7 @@
                 </div>
                 <div class="carousel-inner">
                     <!-- slide1 -->
+                    
                     <div class="carousel-item active" data-bs-interval="10000">
                         <!-- category1 id 는 카테고리 명으로 바꾸기   -->
 
@@ -163,12 +164,8 @@
             <span>옷장</span>
             <div id="carouselExampleDark2" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    <button type="button" data-bs-target="#carouselExampleDark2" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
@@ -191,7 +188,7 @@
                                 <span>옷장2</span>
                             </button>
                             <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
+                                <img src="../icons8-폐물-30.png" />
                             </button>
                         </div>
 
@@ -204,91 +201,12 @@
                                 <span>옷장3</span>
                             </button>
                             <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
+                                <img src="../icons8-폐물-30.png" />
                             </button>
                         </div>
 
                     </div>
-                    <div class="carousel-item " data-bs-interval="10000">
-                        <div class="button_area">
-
-                            <button class="closet_button">
-
-                                <div class="circle">
-                                    <p class="check_mark">&#10004</p>
-                                </div>
-                                <span>옷장1(기본)</span>
-                            </button>
-                            <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
-                            </button>
-                        </div>
-                        <div class="button_area">
-                            <button class="closet_button">
-                                <div class="circle">
-                                    <p class="check_mark">&#10004</p>
-                                </div>
-                                <span>옷장2</span>
-                            </button>
-                            <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
-                            </button>
-                        </div>
-
-
-                        <div class="button_area">
-                            <button class="closet_button">
-                                <div class="circle">
-                                    <p class="check_mark">&#10004</p>
-                                </div>
-                                <span>옷장3</span>
-                            </button>
-                            <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="carousel-item " data-bs-interval="10000">
-                        <div class="button_area">
-
-                            <button class="closet_button">
-
-                                <div class="circle">
-                                    <p class="check_mark">&#10004</p>
-                                </div>
-                                <span>옷장1(기본)</span>
-                            </button>
-                            <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
-                            </button>
-                        </div>
-                        <div class="button_area">
-                            <button class="closet_button">
-                                <div class="circle">
-                                    <p class="check_mark">&#10004</p>
-                                </div>
-                                <span>옷장2</span>
-                            </button>
-                            <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
-                            </button>
-                        </div>
-
-
-                        <div class="button_area">
-                            <button class="closet_button">
-                                <div class="circle">
-                                    <p class="check_mark">&#10004</p>
-                                </div>
-                                <span>옷장3</span>
-                            </button>
-                            <button class="delete_closet" data-bs-toggle="modal" data-bs-target = "#deleteModal">
-                                <img src="/김지훈/icons8-폐물-30.png" />
-                            </button>
-                        </div>
-
-                    </div>
+                    
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark2"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -307,9 +225,10 @@
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                         </svg>
                     </button>
+                    
                 </div>
             </div>
-
+                <!-- 옷장추가 팝업 -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -335,7 +254,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">저장</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">저장</button>
                             </div>
                         </div>
                     </div>
