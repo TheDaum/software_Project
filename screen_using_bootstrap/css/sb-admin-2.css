@@ -11269,7 +11269,6 @@ form.user .btn-user {
 footer.sticky-footer {
   padding: 2rem 0;
   flex-shrink: 0;
-  height:5%;
 }
 
 footer.sticky-footer .copyright {
@@ -11279,4 +11278,9 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+
+.closet_divider{
+  width:80%;
+  margin:0;
 }
