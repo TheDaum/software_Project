@@ -333,8 +333,7 @@ h6, .h6 {
   line-height: 1.2; }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
@@ -2181,14 +2180,14 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545; }
+  background-color: #780505;
+  border-color: #780505; }
   .btn-danger:hover {
     color: #fff;
     background-color: #c82333;
     border-color: #bd2130; }
   .btn-danger:focus, .btn-danger.focus {
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(10, 6, 6, 0.5);
     box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); }
   .btn-danger.disabled, .btn-danger:disabled {
     color: #fff;
@@ -3382,12 +3381,12 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: #780505;
   background-color: #fff;
   border: 1px solid #dee2e6; }
   .page-link:hover {
     z-index: 2;
-    color: #0056b3;
+    color: #780505;
     text-decoration: none;
     background-color: #e9ecef;
     border-color: #dee2e6; }
@@ -3409,8 +3408,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff; }
+  background-color: #780505;
+  border-color: #780505; }
 
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -5960,10 +5959,6 @@ button.bg-dark:focus {
 .mx-2 {
   margin-right: 0.5rem !important; }
 
-.mb-2,
-.my-2 {
-  margin-bottom: 0.5rem !important; }
-
 .ml-2,
 .mx-2 {
   margin-left: 0.5rem !important; }
@@ -6062,9 +6057,6 @@ button.bg-dark:focus {
 .pl-1,
 .px-1 {
   padding-left: 0.25rem !important; }
-
-.p-2 {
-  padding: 0.5rem !important; }
 
 .pt-2,
 .py-2 {
@@ -7543,7 +7535,7 @@ h1, h2, h3, h4, h5,
   height: 500px;
   position: relative;
 
-  background: #7e0cf5; }
+  background: #780505; }
 
 /*  Events display */
 .events-container {
@@ -7680,7 +7672,7 @@ h1, h2, h3, h4, h5,
   transition: .2s ease all;
   color: white;
   border: none;
-  background: #7e0cf5; }
+  background: #780505; }
   .button.button-white {
     background: #fff;
     color: #000; }
@@ -7785,7 +7777,7 @@ h1, h2, h3, h4, h5,
     background: #28a745; }
 
 .active-date {
-  background: #cd4dcc;
+  background: #780505;
   color: #fff; }
 
 .event-date.active-date {

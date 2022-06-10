@@ -40,7 +40,6 @@ function getWeather(lat, lon) {
     })
     .then(function(json) {
         //온도, 위치, 날씨묘사, 날씨아이콘을 받는다. 
-        console.log(json);
         const temperature = Math.round(json.main.temp);
         const max_temperature = Math.round(json.main.temp_max);
         const min_temperature = Math.round(json.main.temp_min);

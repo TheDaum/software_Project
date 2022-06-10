@@ -1,5 +1,3 @@
-var category;
-
 var result_num = 10;
 var remainder = result_num%9;
 var page_num = parseInt(result_num/9)+1;
@@ -8,11 +6,6 @@ var result_index = 0;
 var current_page=1;
 
 $(document).ready(function(){
-    var address = unescape(location.href);
-    if(address.indexOf("category", 0) != -1) {
-        param = address.substring(address.indexOf("category", 0) + 9);
-        $("#title>.h3:last").text(param);
-    }
     var ul = $(".pagination");
     for(var i = 0;i<page_num;i++){
         if (i==0){
@@ -100,7 +93,7 @@ function print_card(page_index){
             var button = document.createElement("a");
             // button.attr("href", "#");
             button.classList.add("btn");
-            button.classList.add("btn-primary");
+            button.classList.add("btn-danger");
             button.innerText = "show details";
             card.append(button);
         }

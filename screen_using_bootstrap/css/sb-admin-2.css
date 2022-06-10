@@ -15,7 +15,7 @@
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
-  --red: #e74a3b;
+  --red: #780505;
   --orange: #fd7e14;
   --yellow: #f6c23e;
   --green: #1cc88a;
@@ -420,8 +420,7 @@ h6, .h6 {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -2542,8 +2541,8 @@ fieldset:disabled a.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #e74a3b;
-  border-color: #e74a3b;
+  background-color: #780505;
+  border-color: #780505;
 }
 
 .btn-danger:hover {
@@ -7707,10 +7706,7 @@ button.bg-dark:focus {
   margin-right: 0.5rem !important;
 }
 
-.mb-2,
-.my-2 {
-  margin-bottom: 0.5rem !important;
-}
+
 
 .ml-2,
 .mx-2 {
@@ -7837,9 +7833,6 @@ button.bg-dark:focus {
   padding-left: 0.25rem !important;
 }
 
-.p-2 {
-  padding: 0.5rem !important;
-}
 
 .pt-2,
 .py-2 {
@@ -9632,7 +9625,7 @@ a.text-warning:hover, a.text-warning:focus {
 }
 
 .text-danger {
-  color: #e74a3b !important;
+  color: #780505 !important;
 }
 
 a.text-danger:hover, a.text-danger:focus {
@@ -9900,8 +9893,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-color: #780505;
+  background-image: linear-gradient(180deg, #780505 10%, #780505 100%);
   background-size: cover;
 }
 
