@@ -63,37 +63,49 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
 
-
-
-                                    <button id="testBtn" class="btn">Set Your First Closet!</button>
-                                    <!-- 회원가입 확인 Modal-->
-                                        <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        </button>
-                                                        <h3 class="modal-title" id="exampleModalLabel">Set Your First Closet!</h5>
+                                    <div class="d-grid gap-2 col-6 mx-auto">
+                                    <a id = "setClosetBtn" class="btn btn-success btn-sm" href="#" data-toggle="modal"
+                                    data-target="#setClosetModalToggle">Set Your First Closet</a>  
+                                    </div>
+                                    <!-- add clothe modal -->
+                                    <div class="modal fade" id="setClosetModalToggle" aria-hidden="true" aria-labelledby="setClosetModalToggleLabel"
+                                    tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="setClosetModalToggleLabel">Set Your First Closet Name! <br> 옷장 이름 짓기</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="basic-addon1">이름</span>
+                                                        <input type="text" class="form-control" placeholder="name" aria-label="closetname"
+                                                            aria-describedby="basic-addon1">
                                                     </div>
-                                                    <div class="modal-body">내용 입력 !!</div>
-                                                    <div class="modal-footer">
-                                                        <a class="btn" id="modalY" href="#">예</a>
-                                                        <button class="btn" type="button" data-dismiss="modal">아니요</button>
-                                                    </div>
+                                                    
+                                                        
+                                                
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text" id="basic-addon1">이미지</span>
+                                                            <input type="file" class="form-control" id="inputGroupFile02">
+                                                            
+                                                        </div>
+                                                </form>
+                                                <div class="modal-footer">
+                                                    <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                    </div>
 
 
-                                        
-                                        <script>
-                                            $('#testBtn').click(function(e){
-                                                e.preventDefault();
-                                                $('#testModal').modal("show");
-                                            });
-                                        </script>
+
+
+
                                 </div>
                                 <a href="login.html" class="btn btn-primary btn-user btn-block">
                                     Register Account
