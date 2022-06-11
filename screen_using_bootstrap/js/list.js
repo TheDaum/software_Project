@@ -77,7 +77,8 @@ function print_card(page_index){
             
             var img = document.createElement("img");
             img.className = "card-img-top";
-            // img.attr("src","...");
+            img.classList.add("rounded");
+            $(img).attr("src","/img/background.jpg");
             // img.attr("alt","...");
             shadow.append(img);
             var card = document.createElement("div");
@@ -129,10 +130,13 @@ function print_card_last(){
             shadow = area.children(".card").last();
             
             var img = document.createElement("img");
-            img.className = "card-img-top";
-            // img.attr("src","...");
+            img.classList.add("card-img-top");
+            img.classList.add("rounded");
+            $(img).attr("src","/img/background.jpg");
+            
             // img.attr("alt","...");
             shadow.append(img);
+
             var card = document.createElement("div");
             card.classList.add("card-body");
             shadow.append(card);
@@ -146,7 +150,7 @@ function print_card_last(){
             var button = document.createElement("a");
             // button.attr("href", "#");
             button.classList.add("btn");
-            button.classList.add("btn-primary");
+            button.classList.add("btn-danger");
             button.innerText = "show details";
             card.append(button);
         }

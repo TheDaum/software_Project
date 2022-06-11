@@ -36,13 +36,8 @@ $(document).ready(function(){
 
 function print_closet(){
     var inner = $("#collapseCloset>.collapse-inner");
-    var item = document.createElement("a");
-    item.className = "collapse-item";
-    var text = closets[0]+"(기본)";
-    item.innerText = text;    
-    inner.children("hr").before(item);
     
-    for(var i = 1;i<closets.length;i++){
+    for(var i = 0;i<closets.length;i++){
         var d_flex = document.createElement("div");
         d_flex.classList.add("d-flex");
         inner.children("hr").before(d_flex);
@@ -52,6 +47,9 @@ function print_closet(){
         w_100.classList.add("w-100");
         w_100.classList.add("collapse-item");
         w_100.innerText = closets[i];
+        if(i==0){
+            w_100.innerText+="(기본)"
+        }
         d_flex.append(w_100);
 
         var dropdown = document.createElement("div");
@@ -104,29 +102,43 @@ function print_closet(){
         edit.innerText = "수정";
         dropdown_menu.append(edit);
 
-        var del = document.createElement("a");
-        del.classList.add("dropdown-item");
-        del.classList.add("btn-del");
-        $(del).attr("href","#");
-        $(del).attr("data-toggle","modal");
-        $(del).attr("data-target","#deleteClosetModalToggle");
-        del.innerText = "삭제";
-        dropdown_menu.append(del);
-
-        $(".btn-edit").click(function(){        
-            target = $(this).parent().parent().prev().text();
-            console.log($("#closetName-edit"));
-            $("#closetName-edit").val(target);
-        });
-
-        $(".btn-del").click(function(){        
-            target = $(this).parent().parent().prev().text();
-            var text = "옷장 "+ target + " 을(를) 삭제하시겠습니까?"
-            $("#text-del").text(text);
-        });
+        if (i != 0) {
+            var del = document.createElement("a");
+            del.classList.add("dropdown-item");
+            del.classList.add("btn-del");
+            $(del).attr("href", "#");
+            $(del).attr("data-toggle", "modal");
+            $(del).attr("data-target", "#deleteClosetModalToggle");
+            del.innerText = "삭제";
+            dropdown_menu.append(del);
+        }
 
     }
-    
+    $(".btn-edit").click(function(){        
+        target = $(this).parent().parent().prev().text();
+        // '(기본)'문자열이 포함되어 있으면 제거한다.
+        
+        
+        var form_check = $("#editCheck");
+        var check_box = document.createElement("input");
+        check_box.classList.add("form-check-input");
+        $(check_box).attr("type","checkbox");
+        if(target.indexOf("(기본)")!=-1){
+            $(check_box).attr("disabled",true);
+            $(check_box).attr("checked",true);
+            target = target.replace("(기본)","");
+        }
+        $("#closetName-edit").val(target);
+        $("#editText").before(check_box);
+        console.log($("#default_closet_checkbox"));
+
+    });
+
+    $(".btn-del").click(function(){        
+        target = $(this).parent().parent().prev().text();
+        var text = "옷장 "+ target + " 을(를) 삭제하시겠습니까?"
+        $("#text-del").text(text);
+    });
 }
 
 $("#save-btn").click(function(){

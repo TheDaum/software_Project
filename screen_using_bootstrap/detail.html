@@ -190,7 +190,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -219,7 +219,7 @@
                 <div class="p-2 d-flex justify-content-center">
                     <div class = "col-xl-8 col-lg-7">
                         <div class = "card shadow mb-4">
-                            <img class = "card-img-top row-cols-2">
+                            <img class = "card-img-top" src = "/img/background.jpg">
                             <form>
                             
                                 <div class="input-group mb-3">
@@ -365,10 +365,10 @@
                         <input type="text" id = "closetName-edit" class="form-control" placeholder="Closetname" aria-label="Closetname"
                             aria-describedby="addon-wrapping">
                     </div>
-                    <div class="form-check">
-                        <input id = "default_closet_checkbox" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          기본 옷장으로 지정
+                    <div id = "editCheck" class="form-check">
+                        
+                        <label id = "editText" class="form-check-label" for="flexCheckDefault">
+                            기본 옷장으로 지정
                         </label>
                     </div>
                 </div>
@@ -476,6 +476,51 @@
                     <h2 id = "text-del">삭제 확인 메세지</h2>
                     <div class="modal-footer">
                         <input type="submit" id="save-btn-del" class="btn btn-danger" value="delete" data-dismiss="modal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- profile clothe modal -->
+    <div class="modal fade" id="profileModal" aria-hidden="true" aria-labelledby="profileModalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Profile</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+    
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" >이름</span>
+                            <input type="text" aria-label="First name" class="form-control" value="이"readonly>
+                            <input type="text" aria-label="Last name" class="form-control" value="한솔"readonly>
+                        </div>
+    
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">Email</span>
+                            <input type="text" aria-label="Email address" class="form-control" placeholder ="enter your email address" value="이@dd.dd">
+    
+                            
+                        </div>
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">비밀번호</span>
+                            <input type="password" class="form-control form-control-user"
+                                id="exampleInputPassword" placeholder="Password">
+                        </div>
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">비밀번호 확인</span>
+                            <input type="password" class="form-control form-control-user"
+                                id="exampleRepeatPassword" placeholder="Repeat Password">
+                        </div>
+    
+                        
+                    </form>
+                    <div class="modal-footer">
+                        <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
                     </div>
                 </div>
             </div>

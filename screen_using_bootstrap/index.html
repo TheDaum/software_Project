@@ -224,9 +224,7 @@
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <div class="text-center">
-                                    <img id = "recommendImg" class="rounded" alt="">
-                                </div>
+                                <img id = "recommendImg" class="rounded card-img-top" alt="" src = "/img/background.jpg">
                                 <div class="row">
                                     <div class="col-12 text-truncate">
                                       This text is quite long, and will be truncated once displayed.
@@ -470,10 +468,9 @@
                             <input type="text" id="closetName-edit" class="form-control" placeholder="Closetname"
                                 aria-label="Closetname" aria-describedby="addon-wrapping">
                         </div>
-                        <div class="form-check">
-                            <input id="default_closet_checkbox" class="form-check-input" type="checkbox" value=""
-                                id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                        <div id = "editCheck" class="form-check">
+                            
+                            <label id = "editText" class="form-check-label" for="flexCheckDefault">
                                 기본 옷장으로 지정
                             </label>
                         </div>
@@ -605,24 +602,7 @@
                                     id="exampleRepeatPassword" placeholder="Repeat Password">
                             </div>
         
-                            <div class="input-group d-flex mb-3">
-                                <span class="input-group-text" id="basic-addon1">구입 날짜</span>
-                                <input type="date" class="flex-fill border border-2 rounded">
-                            </div>
-                            <div class="input-group d-flex mb-3">
-                                <span class="input-group-text" id="basic-addon1">카테고리</span>
-                                <select id="seasonChoice" class="flex-fill border border-2 rounded">
-                                    <option value="봄">봄</option>
-                                    <option value="여름">여름</option>
-                                    <option value="가을">가을</option>
-                                    <option value="겨울">겨울</option>
-                                </select>
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">이미지</span>
-                                <input type="file" class="form-control" id="inputGroupFile02">
-        
-                            </div>
+                            
                         </form>
                         <div class="modal-footer">
                             <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">

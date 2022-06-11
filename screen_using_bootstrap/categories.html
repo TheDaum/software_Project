@@ -68,11 +68,12 @@
                     </svg>
                     <span>category</span>
                 </a>
-                <div id="collapseCategory" class="collapse" aria-labelledby="headingCategory" data-parent="#accordionSidebar">
+                <div id="collapseCategory" class="collapse" aria-labelledby="headingCategory"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" >상의</a>
-                        <a class="collapse-item" >하의</a>
-                        <a class="collapse-item" >겉옷</a>
+                        <a class="collapse-item">상의</a>
+                        <a class="collapse-item">하의</a>
+                        <a class="collapse-item">겉옷</a>
 
 
                     </div>
@@ -118,9 +119,12 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <hr>
-                        <a class="collapse-item d-flex justify-content-center" href="#" data-toggle="modal" data-target="#addClosetModalToggle">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#780505" class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                        <a class="collapse-item d-flex justify-content-center" href="#" data-toggle="modal"
+                            data-target="#addClosetModalToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#780505"
+                                class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                             </svg>
                         </a>
                     </div>
@@ -143,8 +147,8 @@
                         d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
                 </svg>
                 <p class="text-center mb-2"><strong>add your clothes!!</strong> </p>
-                <a id = "addClotheBtn" class="btn btn-success btn-sm" href="#" data-toggle="modal"
-                data-target="#addClotheModalToggle">go</a>            
+                <a id="addClotheBtn" class="btn btn-success btn-sm" href="#" data-toggle="modal"
+                    data-target="#addClotheModalToggle">go</a>
 
         </ul>
         <!-- End of Sidebar -->
@@ -190,11 +194,11 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -208,10 +212,10 @@
                 </nav>
                 <!-- End of Topbar -->
 
-            <!-- Begin Page Content -->
+                <!-- Begin Page Content -->
                 <!-- Page Heading -->
 
-                <div id = "title" class="d-sm-flex align-items-center justify-content-start mb-4">
+                <div id="title" class="d-sm-flex align-items-center justify-content-start mb-4">
                     <h1 class="h3 mb-0 text-gray-800">&nbsp;&nbsp;</h1>
                     <h1 class="h3 mb-0 text-gray-800"></h1>
                 </div>
@@ -223,19 +227,19 @@
 
                 <nav class="mt-auto p-2 d-flex justify-content-center" aria-label="Page navigation example">
                     <ul class="pagination">
-                      <li class="page-item disabled">
-                        <a class="page-link" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li class="page-item active"><a class="page-link">1</a></li>
-                      <li class="page-item disabled">
-                        <a class="page-link" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link">1</a></li>
+                        <li class="page-item disabled">
+                            <a class="page-link" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
                     </ul>
-                  </nav>
+                </nav>
             </div>
 
 
@@ -297,18 +301,19 @@
                 <div class="modal-body">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">옷장이름</span>
-                        <input type="text" id = "closetName" class="form-control" placeholder="Closetname" aria-label="Closetname"
-                            aria-describedby="addon-wrapping">
+                        <input type="text" id="closetName" class="form-control" placeholder="Closetname"
+                            aria-label="Closetname" aria-describedby="addon-wrapping">
                     </div>
                     <div class="form-check">
-                        <input id = "default_closet_checkbox" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input id="default_closet_checkbox" class="form-check-input" type="checkbox" value=""
+                            id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
-                          기본 옷장으로 지정
+                            기본 옷장으로 지정
                         </label>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id = "save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
+                    <button id="save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
                 </div>
             </div>
         </div>
@@ -328,26 +333,25 @@
                 <div class="modal-body">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">옷장이름</span>
-                        <input type="text" id = "closetName-edit" class="form-control" placeholder="Closetname" aria-label="Closetname"
-                            aria-describedby="addon-wrapping">
+                        <input type="text" id="closetName-edit" class="form-control" placeholder="Closetname"
+                            aria-label="Closetname" aria-describedby="addon-wrapping">
                     </div>
-                    <div class="form-check">
-                        <input id = "default_closet_checkbox" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          기본 옷장으로 지정
+                    <div id="editCheck" class="form-check">
+                        <label id="editText" class="form-check-label" for="flexCheckDefault">
+                            기본 옷장으로 지정
                         </label>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id = "save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
+                    <button id="save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- delete closet modal -->
-    <div class="modal fade" id="deleteClosetModalToggle" aria-hidden="true" aria-labelledby="deleteClosetModalToggleLabel"
-        tabindex="-1">
+    <div class="modal fade" id="deleteClosetModalToggle" aria-hidden="true"
+        aria-labelledby="deleteClosetModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -357,91 +361,139 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h2 id = "text-del"></h2>
+                    <h2 id="text-del"></h2>
                 </div>
                 <div class="modal-footer">
-                    <button id = "save-btn-del" class="btn btn-danger" type="button" data-dismiss="modal">delete</button>
+                    <button id="save-btn-del" class="btn btn-danger" type="button" data-dismiss="modal">delete</button>
                 </div>
             </div>
         </div>
     </div>
 
-     <!-- add clothe modal -->
-     <div class="modal fade" id="addClotheModalToggle" aria-hidden="true" aria-labelledby="addClotheModalToggleLabel"
-     tabindex="-1">
-     <div class="modal-dialog modal-dialog-centered">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="addClotheModalToggleLabel">옷 추가</h5>
-                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">×</span>
-                 </button>
-             </div>
-             <div class="modal-body">
-                 <form>
-                     
-                     <div class="input-group mb-3">
-                         <span class="input-group-text" id="basic-addon1">이름</span>
-                         <input type="text" class="form-control" placeholder="name" aria-label="clothename"
-                             aria-describedby="basic-addon1">
-                     </div>
-                     
-                         <div class="input-group d-flex mb-3">
-                             <span class="input-group-text" id="basic-addon1">옷장</span>
-                             <select id = "closetChoice"class="flex-fill border border-2 rounded">
+    <!-- add clothe modal -->
+    <div class="modal fade" id="addClotheModalToggle" aria-hidden="true" aria-labelledby="addClotheModalToggleLabel"
+        tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addClotheModalToggleLabel">옷 추가</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
 
-                             </select>
-                         </div>
-                         <div class="input-group d-flex mb-3">
-                             <span class="input-group-text" id="basic-addon1">카테고리</span>
-                             <select id = "categoryChoice"class="flex-fill border border-2 rounded">
-                                 <option value = "상의">상의</option>
-                                 <option value = "하의">하의</option>
-                                 <option value = "겉옷">겉옷</option>
-                             </select>
-                         </div>
-                     
-                         <div class="input-group d-flex mb-3">
-                             <span class="input-group-text" id="basic-addon1">구입 날짜</span>
-                             <input type="date" class="flex-fill border border-2 rounded">
-                         </div>
-                         <div class="input-group d-flex mb-3">
-                             <span class="input-group-text" id="basic-addon1">카테고리</span>
-                             <select id = "seasonChoice"class="flex-fill border border-2 rounded">
-                                 <option value = "봄">봄</option>
-                                 <option value = "여름">여름</option>
-                                 <option value = "가을">가을</option>
-                                 <option value = "겨울">겨울</option>
-                             </select>
-                         </div>
-                         <div class="input-group mb-3">
-                             <span class="input-group-text" id="basic-addon1">이미지</span>
-                             <input type="file" class="form-control" id="inputGroupFile02">
-                             
-                         </div>
-                 </form>
-                 <div class="modal-footer">
-                     <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
-                 </div>
-             </div>
-         </div>
-     </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">이름</span>
+                            <input type="text" class="form-control" placeholder="name" aria-label="clothename"
+                                aria-describedby="basic-addon1">
+                        </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">옷장</span>
+                            <select id="closetChoice" class="flex-fill border border-2 rounded">
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                            </select>
+                        </div>
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">카테고리</span>
+                            <select id="categoryChoice" class="flex-fill border border-2 rounded">
+                                <option value="상의">상의</option>
+                                <option value="하의">하의</option>
+                                <option value="겉옷">겉옷</option>
+                            </select>
+                        </div>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">구입 날짜</span>
+                            <input type="date" class="flex-fill border border-2 rounded">
+                        </div>
+                        <div class="input-group d-flex mb-3">
+                            <span class="input-group-text" id="basic-addon1">카테고리</span>
+                            <select id="seasonChoice" class="flex-fill border border-2 rounded">
+                                <option value="봄">봄</option>
+                                <option value="여름">여름</option>
+                                <option value="가을">가을</option>
+                                <option value="겨울">겨울</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">이미지</span>
+                            <input type="file" class="form-control" id="inputGroupFile02">
 
-    <script src="js/category-title.js"></script>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- profile clothe modal -->
+        <div class="modal fade" id="profileModal" aria-hidden="true" aria-labelledby="profileModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel">Profile</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
 
-    <script src="js/list.js"></script>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text">이름</span>
+                                <input type="text" aria-label="First name" class="form-control" value="이" readonly>
+                                <input type="text" aria-label="Last name" class="form-control" value="한솔" readonly>
+                            </div>
 
-    <script src ="js/base.js"></script>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">Email</span>
+                                <input type="text" aria-label="Email address" class="form-control"
+                                    placeholder="enter your email address" value="이@dd.dd">
+
+
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">비밀번호</span>
+                                <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                                    placeholder="Password">
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">비밀번호 확인</span>
+                                <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
+                                    placeholder="Repeat Password">
+                            </div>
+
+
+                        </form>
+                        <div class="modal-footer">
+                            <input type="submit" id="save-btn-del" class="btn btn-danger" value="save"
+                                data-dismiss="modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <script src="js/category-title.js"></script>
+
+        <script src="js/list.js"></script>
+
+        <script src="js/base.js"></script>
 
 
 </body>
