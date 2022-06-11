@@ -95,6 +95,7 @@ function print_card(page_index){
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
+            $(button).attr("href","detail.html");
             card.append(button);
         }
     }

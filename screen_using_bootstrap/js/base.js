@@ -155,6 +155,15 @@ $("#save-btn-del").click(function(){
     location.reload();
 });
 
+$("#save-btn-clothe-del").click(function(){
+    closets = closets.filter(function(item) {
+        return item !== target;
+    });
+    
+    //서버에 업데이트 필요
+    history.back();
+});
+
 $("#addClotheBtn").click(function(){
     for(var i = 0;i<closets.length;i++){
         var item = document.createElement("option");
@@ -165,4 +174,11 @@ $("#addClotheBtn").click(function(){
     }
 
 });
+for(var i = 0;i<closets.length;i++){
+    var item = document.createElement("option");
+    $(item).attr("value",closets[i]);
+    $(item).text(closets[i]);
+    $("#closetChoice").append(item);
+
+}
 // end of base
