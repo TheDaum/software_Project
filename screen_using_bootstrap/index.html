@@ -195,7 +195,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -520,46 +520,46 @@
                     </div>
                     <div class="modal-body">
                         <form>
-                            
+        
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">이름</span>
                                 <input type="text" class="form-control" placeholder="name" aria-label="clothename"
                                     aria-describedby="basic-addon1">
                             </div>
-                            
-                                <div class="input-group d-flex mb-3">
-                                    <span class="input-group-text" id="basic-addon1">옷장</span>
-                                    <select id = "closetChoice"class="flex-fill border border-2 rounded">
-
-                                    </select>
-                                </div>
-                                <div class="input-group d-flex mb-3">
-                                    <span class="input-group-text" id="basic-addon1">카테고리</span>
-                                    <select id = "categoryChoice"class="flex-fill border border-2 rounded">
-                                        <option value = "상의">상의</option>
-                                        <option value = "하의">하의</option>
-                                        <option value = "겉옷">겉옷</option>
-                                    </select>
-                                </div>
-                            
-                                <div class="input-group d-flex mb-3">
-                                    <span class="input-group-text" id="basic-addon1">구입 날짜</span>
-                                    <input type="date" class="flex-fill border border-2 rounded">
-                                </div>
-                                <div class="input-group d-flex mb-3">
-                                    <span class="input-group-text" id="basic-addon1">카테고리</span>
-                                    <select id = "seasonChoice"class="flex-fill border border-2 rounded">
-                                        <option value = "봄">봄</option>
-                                        <option value = "여름">여름</option>
-                                        <option value = "가을">가을</option>
-                                        <option value = "겨울">겨울</option>
-                                    </select>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">이미지</span>
-                                    <input type="file" class="form-control" id="inputGroupFile02">
-                                    
-                                </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">옷장</span>
+                                <select id="closetChoice" class="flex-fill border border-2 rounded">
+        
+                                </select>
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">카테고리</span>
+                                <select id="categoryChoice" class="flex-fill border border-2 rounded">
+                                    <option value="상의">상의</option>
+                                    <option value="하의">하의</option>
+                                    <option value="겉옷">겉옷</option>
+                                </select>
+                            </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">구입 날짜</span>
+                                <input type="date" class="flex-fill border border-2 rounded">
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">카테고리</span>
+                                <select id="seasonChoice" class="flex-fill border border-2 rounded">
+                                    <option value="봄">봄</option>
+                                    <option value="여름">여름</option>
+                                    <option value="가을">가을</option>
+                                    <option value="겨울">겨울</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">이미지</span>
+                                <input type="file" class="form-control" id="inputGroupFile02">
+        
+                            </div>
                         </form>
                         <div class="modal-footer">
                             <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
@@ -567,6 +567,71 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+            <!-- profile clothe modal -->
+        <div class="modal fade" id="profileModal" aria-hidden="true" aria-labelledby="profileModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel">Profile</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" >이름</span>
+                                <input type="text" aria-label="First name" class="form-control" value="이"readonly>
+                                <input type="text" aria-label="Last name" class="form-control" value="한솔"readonly>
+                            </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">Email</span>
+                                <input type="text" aria-label="Email address" class="form-control" placeholder ="enter your email address" value="이@dd.dd">
+        
+                                
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">비밀번호</span>
+                                <input type="password" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="Password">
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">비밀번호 확인</span>
+                                <input type="password" class="form-control form-control-user"
+                                    id="exampleRepeatPassword" placeholder="Repeat Password">
+                            </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">구입 날짜</span>
+                                <input type="date" class="flex-fill border border-2 rounded">
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">카테고리</span>
+                                <select id="seasonChoice" class="flex-fill border border-2 rounded">
+                                    <option value="봄">봄</option>
+                                    <option value="여름">여름</option>
+                                    <option value="가을">가을</option>
+                                    <option value="겨울">겨울</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">이미지</span>
+                                <input type="file" class="form-control" id="inputGroupFile02">
+        
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
             
             <!-- Bootstrap core JavaScript-->
             <script src="vendor/jquery/jquery.min.js"></script>
