@@ -29,6 +29,7 @@ $(document).ready(function(){
         $(item).attr("href","closet.html?name="+escape($(this).text()));
     
     });
+
     
 
 });
@@ -152,5 +153,16 @@ $("#save-btn-del").click(function(){
     
     //서버에 업데이트 필요
     location.reload();
+});
+
+$("#addClotheBtn").click(function(){
+    for(var i = 0;i<closets.length;i++){
+        var item = document.createElement("option");
+        $(item).attr("value",closets[i]);
+        $(item).text(closets[i]);
+        $("#closetChoice").append(item);
+
+    }
+
 });
 // end of base

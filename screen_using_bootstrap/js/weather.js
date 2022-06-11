@@ -1,6 +1,6 @@
 const API_KEY = "b06c41ccee7ab5cece7b8d69daf90f57"; //add your API KEY 
 const COORDS = 'coords'; //좌표를 받을 변수 
-
+var feels_like;
 //DOM객체들 
 const weatherInfo1 = document.querySelector('.weatherInfo1');
 const weatherInfo2 = document.querySelector('.weatherInfo2');
@@ -43,13 +43,11 @@ function getWeather(lat, lon) {
         const temperature = Math.round(json.main.temp);
         const max_temperature = Math.round(json.main.temp_max);
         const min_temperature = Math.round(json.main.temp_min);
-        const feels_like = Math.round(json.main.feels_like);
+        feels_like = Math.round(json.main.feels_like);
         const place = json.name;
         const weatherDescription = json.weather[0].description;
         const weatherIcon = json.weather[0].icon;
         const weatherIconAdrs = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-        console.log(`${weatherDescription}`);
-
         //받아온 정보들을 표현한다. 
         weatherInfo1.innerText = `${temperature} °C`;
         weatherInfo2.innerText = `${place}`;
@@ -59,3 +57,22 @@ function getWeather(lat, lon) {
     .catch((error) => console.log("error:", error));
 }
 init();
+
+$(document).ready(function(){
+    var season=[];
+    if(feels_like<9){
+        season.push("winter");
+    }
+    else if(19<feels_like){
+        season.push("summer");
+    }
+    else{
+        season.push("fall");
+        season.push("spring");
+    }
+
+    var result = []
+    var rand = Math.floor(Math.random() * (result.length));
+    // $("#recommendImg").attr("src","");
+    
+});

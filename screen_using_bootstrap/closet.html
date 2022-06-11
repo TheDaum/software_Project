@@ -141,8 +141,8 @@
                         d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
                 </svg>
                 <p class="text-center mb-2"><strong>add your clothes!!</strong> </p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">go</a>
-            </div>
+                <a id = "addClotheBtn" class="btn btn-success btn-sm" href="#" data-toggle="modal"
+                data-target="#addClotheModalToggle">go</a>            </div>
 
         </ul>
         <!-- End of Sidebar -->
@@ -363,6 +363,67 @@
             </div>
         </div>
     </div>
+
+     <!-- add clothe modal -->
+     <div class="modal fade" id="addClotheModalToggle" aria-hidden="true" aria-labelledby="addClotheModalToggleLabel"
+     tabindex="-1">
+     <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="addClotheModalToggleLabel">옷 추가</h5>
+                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <form>
+                     
+                     <div class="input-group mb-3">
+                         <span class="input-group-text" id="basic-addon1">이름</span>
+                         <input type="text" class="form-control" placeholder="name" aria-label="clothename"
+                             aria-describedby="basic-addon1">
+                     </div>
+                     
+                         <div class="input-group d-flex mb-3">
+                             <span class="input-group-text" id="basic-addon1">옷장</span>
+                             <select id = "closetChoice"class="flex-fill border border-2 rounded">
+
+                             </select>
+                         </div>
+                         <div class="input-group d-flex mb-3">
+                             <span class="input-group-text" id="basic-addon1">카테고리</span>
+                             <select id = "categoryChoice"class="flex-fill border border-2 rounded">
+                                 <option value = "상의">상의</option>
+                                 <option value = "하의">하의</option>
+                                 <option value = "겉옷">겉옷</option>
+                             </select>
+                         </div>
+                     
+                         <div class="input-group d-flex mb-3">
+                             <span class="input-group-text" id="basic-addon1">구입 날짜</span>
+                             <input type="date" class="flex-fill border border-2 rounded">
+                         </div>
+                         <div class="input-group d-flex mb-3">
+                             <span class="input-group-text" id="basic-addon1">카테고리</span>
+                             <select id = "seasonChoice"class="flex-fill border border-2 rounded">
+                                 <option value = "봄">봄</option>
+                                 <option value = "여름">여름</option>
+                                 <option value = "가을">가을</option>
+                                 <option value = "겨울">겨울</option>
+                             </select>
+                         </div>
+                         <div class="input-group mb-3">
+                             <span class="input-group-text" id="basic-addon1">이미지</span>
+                             <input type="file" class="form-control" id="inputGroupFile02">
+                             
+                         </div>
+                 </form>
+                 <div class="modal-footer">
+                     <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
+                 </div>
+             </div>
+         </div>
+     </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
