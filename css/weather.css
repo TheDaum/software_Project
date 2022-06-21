@@ -1,0 +1,16 @@
+
+.weatherInfo1 {
+    font-size: 3em;
+}
+.weatherInfo2 {
+    font-size: 2em;
+}
+.weatherInfo3 {
+    font-size: 1.5em;
+}
+.weatherIcon{
+    height:100%;
+}
+.col-xl-4{
+    text-align: center;
+}

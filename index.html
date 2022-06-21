@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Your Closet</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cal_style.css">
+    <link rel="stylesheet" href="css/weather.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-house-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                    </svg>
+                </div>
+                <div class="sidebar-brand-text mx-3">Your Closet</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                VIEW
+            </div>
+
+            <!-- Nav Item - category Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory"
+                    aria-expanded="true" aria-controls="collapseCategory">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-tags-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                        <path
+                            d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z" />
+                    </svg>
+                    <span>category</span>
+                </a>
+                <div id="collapseCategory" class="collapse" aria-labelledby="headingCategory"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item">상의</a>
+                        <a class="collapse-item">하의</a>
+                        <a class="collapse-item">겉옷</a>
+
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - season Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeason"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+                        <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z" />
+                        <path
+                            d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                    <span>season</span>
+                </a>
+                <div id="collapseSeason" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item">spring</a>
+                        <a class="collapse-item">summmer</a>
+                        <a class="collapse-item">fall</a>
+                        <a class="collapse-item">winter</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - closet Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCloset"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+                        <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z" />
+                        <path
+                            d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                    <span>closet</span>
+                </a>
+                <div id="collapseCloset" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <hr>
+                        <a class="collapse-item d-flex justify-content-center" href="#" data-toggle="modal"
+                            data-target="#addClosetModalToggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#780505"
+                                class="bi bi-plus-circle-fill " viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            <!-- Sidebar Message -->
+            <div class="sidebar-card d-none d-lg-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
+                </svg>
+                <p class="text-center mb-2"><strong>add your clothes!!</strong> </p>
+                <a id = "addClotheBtn" class="btn btn-success btn-sm" href="#" data-toggle="modal"
+                    data-target="#addClotheModalToggle">go</a>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex">
+
+            <!-- Main Content -->
+
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+                        method="POST">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-danger" type="submit">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="userName"></span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a id = "btn-profile" class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid d-flex">
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-danger">오늘 추천 옷</h6>
+                                
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <img id = "recommendImg" class="rounded card-img-top" alt="" src = "/img/background.jpg">
+                                <div class="row">
+                                    <div class="col-12 text-truncate">
+                                      This text is quite long, and will be truncated once displayed.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-danger">What You Have</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">분류</div>
+                                        <a id = "chartTypeCategory" class="dropdown-item" >category</a>
+                                        <a id = "chartTypeSeason" class="dropdown-item" >season</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-pie pt-4 pb-2">
+                                    <canvas id="myPieChart"></canvas>
+                                </div>
+                                <div id = "chartLabel" class="mt-4 text-center small">
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle text-primary"></i> 상의
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle text-success"></i> 하의
+                                    </span>
+                                    <span class="mr-2">
+                                        <i class="fas fa-circle text-info"></i> 겉옷
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8">
+                        <!--  weather -->
+                        <div>
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-danger">오늘의 날씨</h6>
+                                </div>
+                                <!-- Card Body -->
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl-8 col-lg-8">
+                                            <span class="weatherInfo1"></span><br>
+                                            <span class="weatherInfo2"></span><br>
+                                            <span class="weatherInfo3"></span>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4">
+
+                                            <img class="weatherIcon">
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-danger">Events</h6>
+                                </div>
+                                <div class="col-md-20">
+                                    <div class="content w-100">
+                                        <div class="calendar-container">
+                                            <div class="calendar">
+                                                <div class="year-header">
+                                                    <span class="left-button fa fa-chevron-left" id="prev"> </span>
+                                                    <span class="year" id="label"></span>
+                                                    <span class="right-button fa fa-chevron-right" id="next"> </span>
+                                                </div>
+                                                <table class="months-table w-100">
+                                                    <tbody>
+                                                        <tr class="months-row">
+                                                            <td class="month">Jan</td>
+                                                            <td class="month">Feb</td>
+                                                            <td class="month">Mar</td>
+                                                            <td class="month">Apr</td>
+                                                            <td class="month">May</td>
+                                                            <td class="month">Jun</td>
+                                                            <td class="month">Jul</td>
+                                                            <td class="month">Aug</td>
+                                                            <td class="month">Sep</td>
+                                                            <td class="month">Oct</td>
+                                                            <td class="month">Nov</td>
+                                                            <td class="month">Dec</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                <table class="days-table w-100">
+                                                    <td class="day">Sun</td>
+                                                    <td class="day">Mon</td>
+                                                    <td class="day">Tue</td>
+                                                    <td class="day">Wed</td>
+                                                    <td class="day">Thu</td>
+                                                    <td class="day">Fri</td>
+                                                    <td class="day">Sat</td>
+                                                </table>
+                                                <div class="frame">
+                                                    <table class="dates-table w-100">
+                                                        <tbody class="tbody">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <button class="button" id="add-button">Add Event</button>
+                                            </div>
+                                        </div>
+                                        <div class="events-container">
+                                        </div>
+                                        <div class="dialog" id="dialog">
+                                            <h2 class="dialog-header"> Add New Event </h2>
+                                            <form class="form" id="form">
+                                                <div class="form-container" align="center">
+                                                    <label class="form-label" id="valueFromMyButton" for="name">Event
+                                                        name</label>
+                                                    <input class="input" type="text" id="name" maxlength="36">
+                                                    <input type="button" value="Cancel" class="button"
+                                                        id="cancel-button">
+                                                    <input type="button" value="OK" class="button button-white"
+                                                        id="ok-button">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- add closet modal -->
+        <div class="modal fade" id="addClosetModalToggle" aria-hidden="true" aria-labelledby="addClosetModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addClosetModalToggleLabel">옷장 추가</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">옷장이름</span>
+                            <input type="text" id="closetName" class="form-control" placeholder="Closetname"
+                                aria-label="Closetname" aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="form-check">
+                            <input id="default_closet_checkbox" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                기본 옷장으로 지정
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- edit closet modal -->
+        <div class="modal fade" id="editClosetModalToggle" aria-hidden="true"
+            aria-labelledby="editClosetModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editlosetModalToggleLabel">옷장 수정</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">옷장이름</span>
+                            <input type="text" id="closetName-edit" class="form-control" placeholder="Closetname"
+                                aria-label="Closetname" aria-describedby="addon-wrapping">
+                        </div>
+                        <div id = "editCheck" class="form-check">
+                            
+                            <label id = "editText" class="form-check-label" for="flexCheckDefault">
+                                기본 옷장으로 지정
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- delete closet modal -->
+        <div class="modal fade" id="deleteClosetModalToggle" aria-hidden="true"
+            aria-labelledby="deleteClosetModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteClosetModalToggleLabel">옷장 삭제</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="text-del"></h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="save-btn-del" class="btn btn-danger" type="button"
+                            data-dismiss="modal">delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- add clothes modal -->
+        <div class="modal fade" id="addClotheModalToggle" aria-hidden="true" aria-labelledby="addClotheModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addClotheModalToggleLabel">옷 추가</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+        
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">이름</span>
+                                <input type="text" class="form-control" placeholder="name" aria-label="clothename"
+                                    aria-describedby="basic-addon1"id="basic-addon1">
+                            </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" >옷장</span>
+                                <select id="closetChoice" class="flex-fill border border-2 rounded">
+        
+                                </select>
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" >카테고리</span>
+                                <select id="categoryChoice" class="flex-fill border border-2 rounded" >
+                                    <option value="상의">상의</option>
+                                    <option value="하의">하의</option>
+                                    <option value="겉옷">겉옷</option>
+                                </select>
+                            </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">구입 날짜</span>
+                                <input type="date" class="flex-fill border border-2 rounded" id="buyDate">
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">카테고리</span>
+                                <select id="seasonChoice" class="flex-fill border border-2 rounded">
+                                    <option value="봄">봄</option>
+                                    <option value="여름">여름</option>
+                                    <option value="가을">가을</option>
+                                    <option value="겨울">겨울</option>
+                                </select>
+                            </div>
+                            <form enctype="multipart/form-data">
+                            <div class="input-group mb-3" >
+                                <span class="input-group-text" id="basic-addon1">이미지</span>
+                                <input type="file" class="form-control" id="inputGroupFile02" >
+        
+                            </div>
+                            </form>
+                        </form>
+                        <div class="modal-footer">
+                            <input type="submit" id="save-clothes-btn" class="btn btn-danger" value="save" data-dismiss="modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- profile clothe modal -->
+        <div class="modal fade" id="profileModal" aria-hidden="true" aria-labelledby="profileModalLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel">Profile</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" >이름</span>
+                                <input id = "firstName" type="text" aria-label="First name" class="form-control" value=""readonly>
+                                <input id = "lastName"type="text" aria-label="Last name" class="form-control" value=""readonly>
+                            </div>
+        
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">Email</span>
+                                <input id = "email" type="text" aria-label="Email address" class="form-control" placeholder ="enter your email address" value="이@dd.dd">
+        
+                                
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">비밀번호 변경</span>
+                                <input type="password" class="form-control form-control-user"
+                                    id="profileInputPassword" placeholder="Password">
+                            </div>
+                            <div class="input-group d-flex mb-3">
+                                <span class="input-group-text" id="basic-addon1">비밀번호 확인</span>
+                                <input type="password" class="form-control form-control-user"
+                                    id="exampleRepeatPassword" placeholder="Repeat Password">
+                            </div>
+        
+                            
+                        </form>
+                        <div class="modal-footer">
+                            <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
+
+            <!-- Page level plugins -->
+            <script src="vendor/chart.js/Chart.min.js"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="js/demo/chart-pie-demo.js"></script>
+            <!-- 달력 관련  -->
+            <script src="js/cal_jquery.min.js"></script>
+            <script src="js/cal_popper.js"></script>
+            <script src="js/cal_bootstrap.min.js"></script>
+            <script src="js/cal_main.js"></script>
+            <!-- 날씨 관련 -->
+            <script src="js/weather.js"></script>
+
+            <script src="js/base.js"></script>
+            <script src="js/addClothes.js"></script>
+
+</body>
+
+</html>
