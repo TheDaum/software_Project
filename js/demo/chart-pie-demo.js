@@ -27,7 +27,7 @@ $(document).ready(async function(){
 
 })
   
-  
+  //ddd
   console.log(Id);    
   axios.get('http://localhost:8080/clothes').then((Response) => {
       data = Response.data;
