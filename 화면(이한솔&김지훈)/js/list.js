@@ -282,7 +282,7 @@ function print_card_last() {
             card.append(title);
 
             var button = document.createElement("a");
-            button.attr("href", "detail.html?");
+            $(button).attr("href", "detail.html?id="+userId+"&clotheId="+totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
