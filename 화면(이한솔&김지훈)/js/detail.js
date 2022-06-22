@@ -114,4 +114,14 @@ $(document).ready(function(){
         $("#clothesDate").val(totalobj.totalBuys);
         $("#seasonChoice").val(totalobj.totalSeasons);
         },400);
+
+        //closet들의 배열
+        var result = ['1','2','3'];
+        for(var i=0;i<result.length;i++){
+            var option = document.createElement("option");
+            $(option).val(result[i]);
+            $(option).text(result[i]);
+
+            $("#closetChoice").append(option);
+        }
 });
