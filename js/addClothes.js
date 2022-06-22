@@ -5,6 +5,24 @@
    const clothesBuy = document.getElementById('buyDate');
    const clothesSeason = document.getElementById('seasonChoice');
    const multipartfile = document.getElementById('inputGroupFile02');
+   var clothesUser;
+   var Id
+
+  $(document).ready(async function(){
+    userId=location.href
+    if(userId.indexOf("id",0)!=-1){
+        Id = userId.substring(userId.indexOf("id",0)+3);
+    }
+    console.log(Id);    
+    axios.get('http://localhost:8080/user').then((Response) => {
+        data = Response.data;
+        console.log(Id) 
+        clothesUser=data[Id].userEmail
+        console.log(clothesUser)
+    
+    })
+  });
+
 
 $("#save-clothes-btn").click(async function () {
   console.log("clotehs");
@@ -17,6 +35,7 @@ $("#save-clothes-btn").click(async function () {
        method: 'POST',
        url: 'http://localhost:8080/clothes',
        data: {
+          clothesUser: clothesUser,
           clothesName: clothesName.value,
           clothesCloset: clothesCloset.value,
           clothesCategory: clothesCategory.value,

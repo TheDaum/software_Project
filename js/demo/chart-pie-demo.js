@@ -2,40 +2,88 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 //init chart data - 데베랑 연동 필요
-var clotheData = {"상의" : 50,"하의":44,"겉옷":55};
+var clotheData = {"상의" : clothesTop,"하의":clothesBottom,"겉옷":clothesOutter};
 var clotheDataKey = Object.keys(clotheData);
 var clotheDataValue = []
 var userEmail;
 var userName;
+var clothesTop;
+var clothesBottom;
+var clothesOutter;
+var spring;
+var summer;
+var winter;
+var fall;
 
 for(var i = 0;i<clotheDataKey.length;i++){
   clotheDataValue.push(clotheData[clotheDataKey[i]]);
 }
 
 $(document).ready(async function(){
+  clothesTop=0;
+  clothesBottom=0;
+  clothesOutter=0;
+  spring=0;
+  summer=0;
+  winter=0;
+  fall=0;
   userId=location.href
   if(userId.indexOf("id",0)!=-1){
       Id = userId.substring(userId.indexOf("id",0)+3);
   }axios.get('http://localhost:8080/user').then((Response) => {
     data = Response.data;
-    Id=Id-1;
     console.log
-    userEmail=data[Id].userEmail,
-    userName=data[Id].userName,
-    console.log(userEmail);
-    console.log(userName);
+    userEmail=data[Id].userEmail
 
-})
+  })
   
   //ddd
   console.log(Id);    
   axios.get('http://localhost:8080/clothes').then((Response) => {
       data = Response.data;
-      for(var i=0; i<data.lenght;i++){
-        if(userEmail[i]==data)
+      for(var i=0; i<data.length;i++){
+        if(userEmail==data[i].clothesUser){
+          console.log(clothesUser)
+          if(data[i].clothesCategory=='상의'){
+            clothesTop++;
+            console.log("상의"+clothesTop)
+          }else if(data[i].clothesCategory='하의'){
+            clothesBottom++;
+            console.log("하의"+clothesBottom)
+          }else{
+            clothesOutter++;
+            console.log("겉옷"+clothesOutter)
+          }
+          if(data[i].clothesSeason=='봄'){
+            spring++;
+            console.log("봄"+spring)
+          }else if(data[i].clothesSeason=='여름'){
+            summer++;
+            console.log("여름"+summer)
+          }else if(data[i].clothesSeason=='가을'){
+            fall++;
+            console.log("가을"+fall)
+          }else if(data[i].clothesSeason=='겨울'){
+            winter++;
+            console.log("겨울"+winter)
+          }
+        }
       }
   
   })
+  
+  setTimeout(function(){
+    clotheData = {"상의" : clothesTop,"하의":clothesBottom,"겉옷":clotheData};
+  clotheDataKey = Object.keys(clotheData);
+  clotheDataValue = []
+
+  for(var i = 0;i<clotheDataKey.length;i++){
+    clotheDataValue.push(clotheData[clotheDataKey[i]]);
+  }
+  printChart();
+  },100)
+ 
+});
 
 
 
@@ -73,10 +121,11 @@ function printChart() {
     },
   });
 }
-printChart();
+
+
 
 $("#chartTypeCategory").click(function(){
-  clotheData = {"상의" : 50,"하의":44,"겉옷":55};
+  clotheData = {"상의" : clothesTop,"하의":clothesBottom,"겉옷":clotheData};
   clotheDataKey = Object.keys(clotheData);
   clotheDataValue = []
 
