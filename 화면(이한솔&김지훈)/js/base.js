@@ -33,7 +33,6 @@ $(document).ready(async function(){
     
     })
 
-<<<<<<< HEAD
     $("home-btn").click(function(){
 
         $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
@@ -41,10 +40,6 @@ $(document).ready(async function(){
    
     
  
-=======
-    $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
-  
->>>>>>> 6a51396f3ee6e87b370ffecdb2c8db3a03ddd214
     //closet 버튼 출력
     setTimeout(function(){
         print_closet();
