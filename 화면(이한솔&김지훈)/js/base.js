@@ -15,10 +15,15 @@ $(document).ready(async function(){
     console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
+<<<<<<< HEAD
         Id
         console.log(Id)
         userEmail=data[Id].userEmail,
         userName=data[Id].userName
+=======
+        userEmail=data[Id-1].userEmail,
+        userName=data[Id-1].userName
+>>>>>>> 8ef5fe7bfe038f5ddc54be4a4a521fdce8cd1cd3
     
     })
     axios.get('http://localhost:8080/closet').then((Response) => {
