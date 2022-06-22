@@ -33,7 +33,7 @@ $(document).ready(async function(){
     
     })
 
-    $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+    $("#home-btn").attr("href","index.html?id="+Id);
   
     //closet 버튼 출력
     setTimeout(function(){
@@ -75,7 +75,7 @@ $(document).ready(async function(){
 
 });
 $("home-btn").click(function(){
-    $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+    $("#home-btn").attr("href","index.html?id="+Id);
 })
 
 function print_closet(){
