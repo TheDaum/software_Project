@@ -21,6 +21,7 @@ $(document).ready(async function () {
     userId = location.href
     if (userId.indexOf("id", 0) != -1) {
         Id = userId.substring(userId.indexOf("id", 0) + 3);
+        idd=Id;
     }
 
     var address = unescape(location.href);
@@ -46,7 +47,7 @@ $(document).ready(async function () {
         setTimeout(function () {
             console.log(Id)
         }, 5);
-        userEmail = data[Id].userEmail
+        userEmail = data[idd].userEmail
         console.log(userEmail)
     });
 
@@ -213,8 +214,8 @@ function print_card(page_index) {
 
         
 
-            // var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index].totalPath;
-            // $(img).attr("src", path);
+            var path = "http://localhost:8080/files/1dddddd.jpg";
+            $(img).attr("src", path);
 
             shadow.append(img);
             var card = document.createElement("div");
@@ -228,11 +229,11 @@ function print_card(page_index) {
             card.append(title);
 
             var button = document.createElement("a");
-            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+idd+"&?clothesId="+totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html?id="+(Id+1)+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+idd+"&?clothesId="+totalarr[result_index++].totalId);
             card.append(button);
         }
     }
@@ -269,8 +270,8 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-            // var path = "c:/mycloset/mycloset/scr/main";
-            // $(img).attr("src", path);
+            var path = "http://localhost:8080/files/1dddddd.jpg";
+            $(img).attr("src", path);
 
 
             shadow.append(img);
@@ -287,7 +288,7 @@ function print_card_last() {
 
             var button = document.createElement("a");
 
-            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+idd+"&?clothesId="+totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";

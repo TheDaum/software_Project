@@ -9,14 +9,20 @@ var totalClosets;
 var totalCategoryS;
 var totalBuys;
 var totalSeasons;
-
+var closetUser;
+var closetName;
+var priority;
+var result=[];
+var idd;
+var userEmail;
 $(document).ready(function(){
     userId = location.href
     
 
     if (userId.indexOf("id", 0) != -1) {
         id = userId.substring(userId.indexOf("id", 0) + 3,userId.indexOf("&", 0));
-        id=parseInt(id);
+        idd=parseInt(id);
+        
 
     }
 
@@ -24,13 +30,15 @@ $(document).ready(function(){
 
     if(address.indexOf("clothesId", 0) != -1) {
         var txt = userId.substring(userId.indexOf("clothesId", 0)+10);
+        
     }
     
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
-        setTimeout(function () {
-        }, 5);
-        userEmail = data[id].userEmail
+        console.log(data[0].userEmail); 
+       
+        userEmail = data[idd].userEmail;
+        console.log(data[0].userEmail);
     });
 
     axios.get('http://localhost:8080/clothes').then((Response) => {
@@ -104,19 +112,20 @@ $(document).ready(function(){
         }
         console.log(totalobj);
         
-        //이미지 경로 넣기
-        },300);
-        setTimeout(function(){
-        console.log('hi')
-        $("#name").val(totalobj.totalName);
-        $("#closetChoice").val(totalobj.totalClosets);
-        $("#categoryChoice").val(totalobj.totalCategoryS);
-        $("#clothesDate").val(totalobj.totalBuys);
-        $("#seasonChoice").val(totalobj.totalSeasons);
-        },400);
+        axios.get('http://localhost:8080/closet').then((Response) => {
+            data = Response.data;
+            
+            for(var i = 0;i<data.length;i++){
+                if(userEmail==data[i].closetUser){
+                  result.push(data[i].closetName);
+                }
+                
+            }
+        
+        });
 
         //closet들의 배열
-        var result = ['1','2','3'];
+        setTimeout(function(){
         for(var i=0;i<result.length;i++){
             var option = document.createElement("option");
             $(option).val(result[i]);
@@ -124,4 +133,17 @@ $(document).ready(function(){
 
             $("#closetChoice").append(option);
         }
+    },)
+        //이미지 경로 넣기
+     },100);
+        setTimeout(function(){
+        console.log('hi')
+        $("#name").val(totalobj.totalName);
+        $("#closetChoice").val(totalobj.totalClosets);
+        $("#categoryChoice").val(totalobj.totalCategoryS);
+        $("#clothesDate").val(totalobj.totalBuys);
+        $("#seasonChoice").val(totalobj.totalSeasons);
+        },700);
+
+     
 });

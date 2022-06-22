@@ -6,6 +6,8 @@ const weatherInfo2 = document.querySelector('.weatherInfo2');
 const weatherInfo3 = document.querySelector('.weatherInfo3');
 const weatherIconImg = document.querySelector('.weatherIcon');
 
+
+
 var tmp;
 //초기화 
 function init() {
@@ -76,10 +78,24 @@ function setRecommend(){
         season="summer";
     }
     //season으로 검색
-    var result = []
-    var rand = Math.floor(Math.random() * (result.length));
-    // $("#recommendImg").attr("src","");
-    console.log(tmp);
-    $("#recommendText").text("오늘의 체감온도는 "+tmp+"입니다.")
+    var result = [];
+    axios.get('http://localhost:8080/clothes').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            if(userEmail==data[i].clothesUser&&data[i].clothesSeason==season){
+              result.push(data[i].clothesSeason);
+            }
+            
+        }
+        console.log(result);
     
+    });
+
+     setTimeout(function(){
+     var rand = Math.floor(Math.random() * (result.length));
+    // $("#recommendImg").attr("src","");
+     console.log(tmp);
+     
+   },50);
+   $("#recommendText").text("오늘의 체감온도는 "+tmp+"입니다.")
 }
