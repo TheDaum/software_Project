@@ -13,7 +13,6 @@
     if(userId.indexOf("id",0)!=-1){
         Id = userId.substring(userId.indexOf("id",0)+3);
     }
-    console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
         console.log(Id) 
@@ -21,6 +20,16 @@
         console.log(clothesUser)
     
     })
+
+    //closet들의 배열
+    var result = ['1','2','3'];
+    for(var i=0;i<result.length;i++){
+        var option = document.createElement("option");
+        $(option).val(result[i]);
+        $(option).text(result[i]);
+
+        $("#closetChoice").append(option);
+    }
   });
 
 
