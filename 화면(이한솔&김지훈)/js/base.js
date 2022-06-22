@@ -33,24 +33,26 @@ $(document).ready(async function(){
     
     })
 
- 
+    $("#home-btn").attr("href","index.html?id="+Id);
    
     
 
     //closet 버튼 출력
     setTimeout(function(){
-        print_closet()
+        print_closet();
     },100);
-
+    console.log("이건?");
     //collapse-item href 설정
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
+
        
         $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+Id);
+
     
     });
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
-       
+        console.log("계절");
         $(item).attr("href","season.html?Season="+escape($(this).text()));
     
     });
@@ -70,9 +72,6 @@ $(document).ready(async function(){
     
 
 });
-
-
-
 
 
 function print_closet(){
@@ -203,7 +202,12 @@ $("#save-btn").click(function(){
     $("#closetName").val("");
     $("#default_closet_checkbox").prop("checked", false);
 
-
+    // 같은이름이 있으면
+    // if(1){
+    //     alert("이미 존재하는 이름입니다.");
+    // }
+    
+    // else
     //서버에 업데이트 필요
     // location.reload();
 });

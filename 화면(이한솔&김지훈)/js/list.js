@@ -25,18 +25,18 @@ $(document).ready(async function () {
 
     var address = unescape(location.href);
     if(address.indexOf("category", 0) != -1) {
-        var txt = address.substring(address.indexOf("category", 0)+9);
+        var txt = address.substring(address.indexOf("category", 0)+9,address.indexOf("&", 0));
         $("#title>.h3:last").text(txt);
         pageType=0;
     }
     else if(address.indexOf("Season", 0) != -1) {
-        var txt = address.substring(address.indexOf("Season", 0)+7);
+        var txt = address.substring(address.indexOf("Season", 0)+7,address.indexOf("&", 0));
         $("#title>.h3:last").text(txt);
         pageType = 1;
     }
     else if(address.indexOf("name", 0) != -1) {
-        title = address.substring(address.indexOf("name", 0)+5);
-        $("#title>.h3:last").text(title);
+        var txt = address.substring(address.indexOf("name", 0)+5,address.indexOf("&", 0));
+        $("#title>.h3:last").text(txt);
         pageType = 2;
     }
 
@@ -97,11 +97,43 @@ $(document).ready(async function () {
         }
     });
     setTimeout(function(){
-    console.log(clothesarr)
-    console.log(imagearr)
+        
+    for(var i=0; i<clothesarr.length;i++){
+        for(var j=0; j<imagearr.length;j++){
+
+            if(pageType==0&&clothesarr[i].clothesCategory==txt&&clothesarr[i].clothesId==imagearr[j].imageId){
+                totalobj={
+                    totalId: clothesarr[i].clothesId,
+                    totalName: clothesarr[i].clothesName,
+                    totalPath: imagearr[j].imagepath
+                }
+                totalarr.push(totalobj)
+                
+            }else if(pageType==1&&clothesarr[i].clothesSeason==txt&&clothesarr[i].clothesId==imagearr[j].imageId){
+                totalobj={
+                    totalId: clothesarr[i].clothesId,
+                    totalName: clothesarr[i].clothesName,
+                    totalPath: imagearr[j].imagepath,
+                }
+                totalarr.push(totalobj)
+            }else if(pageType==2&&clothesarr[i].clothescloset==txt&&clothesarr[i].clothesId==imagearr[j].imageId){
+                totalobj={
+                    totalId: clothesarr[i].clothesId,
+                    totalName: clothesarr[i].clothesName,
+                    totalPath: imagearr[j].imagepath
+                }
+                totalarr.push(totalobj)
+            }else{
+                console.log("error")
+            }
+            
+     }
+    }
     },100);
-
-
+    
+    setTimeout(function(){
+        console.log(totalarr)
+        },110);
 });
 
 $(document).ready(function () {
