@@ -87,13 +87,13 @@ $(document).ready(function(){
                     totalobj={
                         totalId: clothesarr[i].clothesId,
                         totalName: clothesarr[i].clothesName,
-                        totalCategoryS : data[i].clothesCategory,
-                        totalClosets : data[i].clothesCloset,
-                        totalSeasons : data[i].clothesSeason,
-                        totalBuys : data[i].clothesBuy,
+                        totalCategoryS : clothesarr[i].clothesCategory,
+                        totalClosets : clothesarr[i].clothesCloset,
+                        totalSeasons : clothesarr[i].clothesSeason,
+                        totalBuys : clothesarr[i].clothesBuy,
                         totalPath: imagearr[j].imagepath,
                     }
-                    
+                    console.log(totalobj);
                     
                 
                 }else{
@@ -102,12 +102,16 @@ $(document).ready(function(){
                 
          }
         }
-        console.log(totalobj.totalName);
+        console.log(totalobj);
+        
+        //이미지 경로 넣기
+        },300);
+        setTimeout(function(){
+        console.log('hi')
         $("#name").val(totalobj.totalName);
         $("#closetChoice").val(totalobj.totalClosets);
         $("#categoryChoice").val(totalobj.totalCategoryS);
         $("#clothesDate").val(totalobj.totalBuys);
         $("#seasonChoice").val(totalobj.totalSeasons);
-        //이미지 경로 넣기
-        },100);
+        },400);
 });
