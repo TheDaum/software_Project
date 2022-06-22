@@ -33,13 +33,8 @@ $(document).ready(async function(){
     
     })
 
-    $("hone-btn").click(function(){
-
-        $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
-    })
-   
-    
-
+    $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+  
     //closet 버튼 출력
     setTimeout(function(){
         print_closet();
@@ -79,7 +74,7 @@ $(document).ready(async function(){
     });
 
 });
-$("hone-btn").click(function(){
+$("home-btn").click(function(){
     $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
 })
 
