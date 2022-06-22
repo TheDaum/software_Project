@@ -15,6 +15,12 @@ $("#logincheck").click(async function () {
     }
     if(data[index].userPwd==$("#exampleInputPassword").val()){
         location.href="index.html?id="+data[index].id;
+        location.href="categories.html?id="+data[index].id;
+        location.href="closet.html?id="+data[index].id;
+        location.href="detail.html?id="+data[index].id;
+        location.href="season.html.html?id="+data[index].id;
+
+
     }
   }
   )

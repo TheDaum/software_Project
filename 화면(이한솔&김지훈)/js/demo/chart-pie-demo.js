@@ -155,7 +155,7 @@ $("#chartTypeCategory").click(function(){
 });
 
 $("#chartTypeSeason").click(function(){
-  clotheData = {"봄" : 50,"여름":44,"가을":55,"겨울":30};
+  clotheData = {"봄" : spring,"여름":summer,"가을":fall,"겨울":winter};
   clotheDataKey = Object.keys(clotheData);
   clotheDataValue = []
 

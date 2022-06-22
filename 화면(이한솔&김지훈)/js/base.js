@@ -16,7 +16,7 @@ $(document).ready(async function(){
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
         Id=Id-1;
-        console.log
+        console.log(Id)
         userEmail=data[Id].userEmail,
         userName=data[Id].userName
     
@@ -45,7 +45,7 @@ $(document).ready(async function(){
     //collapse-item href 설정
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","categories.html?category="+escape($(this).text()));
+        $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+Id);
     
     });
 

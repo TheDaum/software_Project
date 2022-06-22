@@ -4,6 +4,65 @@ var page_num = parseInt(result_num/9)+1;
 var result_index = 0;
 
 var current_page=1;
+var userId
+var userEmail
+var clothesIden;
+var clothesarr=[];
+var categoriesName;
+
+
+$(document).ready(async function(){
+    userId=location.href
+    if(userId.indexOf("id",0)!=-1){
+        Id = userId.substring(userId.indexOf("id",0)+3);
+    }
+    
+    console.log(Id);    
+    axios.get('http://localhost:8080/user').then((Response) => {
+        data = Response.data;
+        setTimeout(function(){
+            console.log(Id)
+        },5);
+        userEmail=data[Id].userEmail
+    
+    });
+
+    axios.get('http://localhost:8080/clothes').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            if(userEmail==data[i].clothesUser){
+                clothesIden=data[i].Id
+
+                axios.get('http://localhost:8080/boardPicture').then((Response) => {
+                    data1 = Response.data;  
+                    for(var j=0; j<data1.length;j++){
+                        if(clothesIden==data1[j].Id){
+                            var clothesobj={
+                                clothesId: clothesIden,
+                                clothesName : data[i].clothesName,
+                                clothesCloset : data[i].clothesCloset,
+                                clothesCategory : data[i].clotheCategory,
+                                clothesBuy: data[i].clothesBuy,
+                                clothesSeason: data[i].clothesSeason,
+                                clothesImage: data1[i].filePath
+                            }
+                            console.log(clothesobj)
+                            clothesarr.push(clothesobj)
+                        }
+                    }
+                });
+                
+                
+            }
+            
+            
+        }
+        
+    
+    })
+    console.log(clothesarr)
+
+});
 
 $(document).ready(function(){
     var ul = $(".pagination");
