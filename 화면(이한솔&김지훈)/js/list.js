@@ -210,7 +210,7 @@ function print_card(page_index) {
             var img = document.createElement("img");
             img.className = "card-img-top";
             img.classList.add("rounded");
-            var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index++].totalPath;
+            var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index].totalPath;
             $(img).attr("src", path);
 
             shadow.append(img);
@@ -229,7 +229,7 @@ function print_card(page_index) {
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html");
+            $(button).attr("href", "detail.html?id="+userId+"&clotheId="+totalarr[result_index++].totalId);
             card.append(button);
         }
     }
@@ -266,10 +266,9 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-            var path = "c:/mycloset/mycloset/scr/main"+ 
+            var path = "c:/mycloset/mycloset/scr/main";
             $(img).attr("src", path);
 
-            // img.attr("alt","...");
             shadow.append(img);
 
             var card = document.createElement("div");
@@ -283,7 +282,7 @@ function print_card_last() {
             card.append(title);
 
             var button = document.createElement("a");
-            // button.attr("href", "#");
+            button.attr("href", "detail.html?");
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";

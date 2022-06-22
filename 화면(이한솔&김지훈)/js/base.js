@@ -53,19 +53,19 @@ $(document).ready(async function(){
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
         console.log("계절");
-        $(item).attr("href","season.html?Season="+escape($(this).text()));
+        $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+Id);
     
     });
 
     $("#collapseCloset>.collapse-inner>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text()));
+        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
     
     });
 
     $("#collapseCloset>.collapse-inner>.d-flex>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text()));
+        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
     
     });
 
