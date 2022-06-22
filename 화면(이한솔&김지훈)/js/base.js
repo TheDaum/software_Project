@@ -6,23 +6,21 @@ var userId
 var Id
 var userName
 var userEmail
-var idd;
 $(document).ready(async function(){
     userId=location.href
     if(userId.indexOf("id",0)!=-1){
         Id = userId.substring(userId.indexOf("id",0)+3);
     }
-    idd=Id-1;
     
     console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
-        idd=Id-1;
-        console.log(idd)
-        userEmail=data[idd].userEmail,
-        userName=data[idd].userName
+        Id=Id-1;
+        console.log(Id)
+        userEmail=data[Id].userEmail,
+        userName=data[Id].userName
     
-    });
+    })
     axios.get('http://localhost:8080/closet').then((Response) => {
         data = Response.data;
         for(var i = 0;i<data.length;i++){
@@ -35,7 +33,10 @@ $(document).ready(async function(){
     
     })
 
-    $("#home-btn").attr("href","index.html?id="+id);
+    $("hone-btn").click(function(){
+
+        $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+    })
    
     
  
@@ -48,33 +49,39 @@ $(document).ready(async function(){
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
 
        
-        $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+idd);
+        $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+Id);
 
     
     });
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
         console.log("계절");
-        $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+idd);
+        $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+Id);
     
     });
 
     $("#collapseCloset>.collapse-inner>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+idd);
+        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
     
     });
 
     $("#collapseCloset>.collapse-inner>.d-flex>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+idd);
+        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
     
     });
 
+    $("#btn-search").click(function () {
+        console.log($(this));
+        $("#btn-search").attr("href","search.html?key="+escape($("#text-search").val())+"&?id="+Id);
     
+    });
 
 });
-
+$("hone-btn").click(function(){
+    $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+})
 
 function print_closet(){
     var inner = $("#collapseCloset>.collapse-inner");
