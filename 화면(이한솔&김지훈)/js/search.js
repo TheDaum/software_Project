@@ -1,11 +1,32 @@
-var result_num = 20;
-var remainder = result_num%9;
-var page_num = parseInt(result_num/9)+1;
-var result_index = 0;
+const SEARCHKEY = {
+    0:"NAME",
+    1:"CLOSET",
+    2:"CATEGORY",
+    3:"DATE",
+    4:"SEASON"
+};
+
+var result = [2,3,4,5,6];
+var card_num=0;
+var remainder;
+var page_num;
+
+//옷 정보를 불러오는데 사용되는 index
+var title_index = 0;
+var result_index=0;
 
 var current_page=1;
 
 $(document).ready(function(){
+    for(var i =0;i<5;i++){
+        var num=result[i]
+        while(num%3!=0){
+            num++;
+        }
+        card_num+=num;
+    }
+    remainder = card_num%9;
+    page_num = parseInt(card_num/9)+1;
     var ul = $(".pagination");
     for(var i = 0;i<page_num;i++){
         if (i==0){
@@ -49,15 +70,34 @@ $(document).ready(function(){
     print_card(1);
 });
 
+
+
 function print_card(page_index){
     if (page_index == page_num){
         return print_card_last();
     }
-    var result_index = 9*(page_index-1);
-    var container = $(".container-fluid");
+    
 
+    
+
+    var container = $(".container-fluid");
+    
     for(var i = 0; i < 3 ;i++){
-        
+        if (result_index == 0 || i == 0) {
+            var title_area = document.createElement("div");
+            title_area.classList.add("d-sm-flex");
+            title_area.classList.add("align-items-center");
+            title_area.classList.add("justify-content-start");
+            title_area.classList.add("mb-4");
+            $(".container-fluid").append(title_area);
+
+            var title = document.createElement("h1");
+            title.classList.add("h3");
+            title.classList.add("mb-0");
+            title.classList.add("text-gray-800");
+            title.innerText = "Search for " + SEARCHKEY[title_index];
+            title_area.append(title);
+        }
         var row = document.createElement("div");
         row.className = "row";
         container.append(row);
@@ -87,10 +127,10 @@ function print_card(page_index){
             shadow.append(card);
             card = shadow.children(".card-body");
 
-            var title = document.createElement("h5");
-            title.className = "card-title";
-            title.innerText = result_index;
-            card.append(title);
+            var text = document.createElement("h5");
+            text.className = "card-title";
+            text.innerText = "옷 설명";
+            card.append(text);
             
             var button = document.createElement("a");
             // button.attr("href", "#");
@@ -100,11 +140,16 @@ function print_card(page_index){
             $(button).attr("href","detail.html");
             card.append(button);
             result_index++;
+
+            if(result_index==result[title_index]){
+                result_index=0;
+                title_index++;
+                break;
+            }
         }
     }
 }
 function print_card_last(){
-    var result_index = 9*(page_num-1);
     var container = $(".container-fluid");
     var row_num = parseInt(remainder/3)+1;
     var card_num = 3;
@@ -147,7 +192,7 @@ function print_card_last(){
 
             var title = document.createElement("h5");
             title.className = "card-title";
-            title.innerText = result_index;
+            title.innerText = "옷 설명";
             card.append(title);
             
             var button = document.createElement("a");
@@ -156,8 +201,6 @@ function print_card_last(){
             button.classList.add("btn-danger");
             button.innerText = "show details";
             card.append(button);
-            result_index++;
-
         }
     }
 }

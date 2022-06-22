@@ -7,31 +7,31 @@ var Id
 var userName
 var userEmail
 $(document).ready(async function(){
-    userId=location.href
-    if(userId.indexOf("id",0)!=-1){
-        Id = userId.substring(userId.indexOf("id",0)+3);
-    }
+    // userId=location.href
+    // if(userId.indexOf("id",0)!=-1){
+    //     Id = userId.substring(userId.indexOf("id",0)+3);
+    // }
     
-    console.log(Id);    
-    axios.get('http://localhost:8080/user').then((Response) => {
-        data = Response.data;
-        Id=Id-1;
-        console.log
-        userEmail=data[Id].userEmail,
-        userName=data[Id].userName
+    // console.log(Id);    
+    // axios.get('http://localhost:8080/user').then((Response) => {
+    //     data = Response.data;
+    //     Id=Id-1;
+    //     console.log
+    //     userEmail=data[Id].userEmail,
+    //     userName=data[Id].userName
     
-    })
-    axios.get('http://localhost:8080/closet').then((Response) => {
-        data = Response.data;
-        for(var i = 0;i<data.length;i++){
-            if(userEmail==data[i].closetUser){
-              closets.push(data[i].closetName);
-            }
+    // })
+    // axios.get('http://localhost:8080/closet').then((Response) => {
+    //     data = Response.data;
+    //     for(var i = 0;i<data.length;i++){
+    //         if(userEmail==data[i].closetUser){
+    //           closets.push(data[i].closetName);
+    //         }
             
-        }
-        console.log(closets);
+    //     }
+    //     console.log(closets);
     
-    })
+    // })
 
  
    
@@ -41,16 +41,16 @@ $(document).ready(async function(){
     setTimeout(function(){
         print_closet()
     },100);
-
+    console.log("이건?");
     //collapse-item href 설정
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
-       
+       console.log("카테고리");
         $(item).attr("href","categories.html?category="+escape($(this).text()));
     
     });
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
-       
+        console.log("계절");
         $(item).attr("href","season.html?Season="+escape($(this).text()));
     
     });
