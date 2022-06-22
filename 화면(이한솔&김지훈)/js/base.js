@@ -7,39 +7,39 @@ var Id
 var userName
 var userEmail
 $(document).ready(async function(){
-    // userId=location.href
-    // if(userId.indexOf("id",0)!=-1){
-    //     Id = userId.substring(userId.indexOf("id",0)+3);
-    // }
+    userId=location.href
+    if(userId.indexOf("id",0)!=-1){
+        Id = userId.substring(userId.indexOf("id",0)+3);
+    }
     
-    // console.log(Id);    
-    // axios.get('http://localhost:8080/user').then((Response) => {
-    //     data = Response.data;
-    //     Id=Id-1;
-    //     console.log
-    //     userEmail=data[Id].userEmail,
-    //     userName=data[Id].userName
+    console.log(Id);    
+    axios.get('http://localhost:8080/user').then((Response) => {
+        data = Response.data;
+        Id=Id-1;
+        console.log
+        userEmail=data[Id].userEmail,
+        userName=data[Id].userName
     
-    // })
-    // axios.get('http://localhost:8080/closet').then((Response) => {
-    //     data = Response.data;
-    //     for(var i = 0;i<data.length;i++){
-    //         if(userEmail==data[i].closetUser){
-    //           closets.push(data[i].closetName);
-    //         }
+    })
+    axios.get('http://localhost:8080/closet').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            if(userEmail==data[i].closetUser){
+              closets.push(data[i].closetName);
+            }
             
-    //     }
-    //     console.log(closets);
+        }
+        console.log(closets);
     
-    // })
+    })
 
- 
+    $("#home-btn").attr("href","index.html?id="+Id);
    
     
 
     //closet 버튼 출력
     setTimeout(function(){
-        print_closet()
+        print_closet();
     },100);
     console.log("이건?");
     //collapse-item href 설정
@@ -70,9 +70,6 @@ $(document).ready(async function(){
     
 
 });
-
-
-
 
 
 function print_closet(){
@@ -203,7 +200,12 @@ $("#save-btn").click(function(){
     $("#closetName").val("");
     $("#default_closet_checkbox").prop("checked", false);
 
-
+    // 같은이름이 있으면
+    // if(1){
+    //     alert("이미 존재하는 이름입니다.");
+    // }
+    
+    // else
     //서버에 업데이트 필요
     // location.reload();
 });
