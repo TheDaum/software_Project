@@ -21,6 +21,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/cal_style.css">
     <link rel="stylesheet" href="css/weather.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
 </head>
@@ -189,13 +190,13 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="userName"></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
+                                <a id = "btn-profile" class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -504,7 +505,7 @@
             </div>
         </div>
 
-        <!-- add clothe modal -->
+        <!-- add clothes modal -->
         <div class="modal fade" id="addClotheModalToggle" aria-hidden="true" aria-labelledby="addClotheModalToggleLabel"
             tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
@@ -519,20 +520,20 @@
                         <form>
         
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">이름</span>
+                                <span class="input-group-text">이름</span>
                                 <input type="text" class="form-control" placeholder="name" aria-label="clothename"
-                                    aria-describedby="basic-addon1">
+                                    aria-describedby="basic-addon1"id="basic-addon1">
                             </div>
         
                             <div class="input-group d-flex mb-3">
-                                <span class="input-group-text" id="basic-addon1">옷장</span>
+                                <span class="input-group-text" >옷장</span>
                                 <select id="closetChoice" class="flex-fill border border-2 rounded">
         
                                 </select>
                             </div>
                             <div class="input-group d-flex mb-3">
-                                <span class="input-group-text" id="basic-addon1">카테고리</span>
-                                <select id="categoryChoice" class="flex-fill border border-2 rounded">
+                                <span class="input-group-text" >카테고리</span>
+                                <select id="categoryChoice" class="flex-fill border border-2 rounded" >
                                     <option value="상의">상의</option>
                                     <option value="하의">하의</option>
                                     <option value="겉옷">겉옷</option>
@@ -541,7 +542,7 @@
         
                             <div class="input-group d-flex mb-3">
                                 <span class="input-group-text" id="basic-addon1">구입 날짜</span>
-                                <input type="date" class="flex-fill border border-2 rounded">
+                                <input type="date" class="flex-fill border border-2 rounded" id="buyDate">
                             </div>
                             <div class="input-group d-flex mb-3">
                                 <span class="input-group-text" id="basic-addon1">카테고리</span>
@@ -552,14 +553,16 @@
                                     <option value="겨울">겨울</option>
                                 </select>
                             </div>
-                            <div class="input-group mb-3">
+                            <form enctype="multipart/form-data">
+                            <div class="input-group mb-3" >
                                 <span class="input-group-text" id="basic-addon1">이미지</span>
-                                <input type="file" class="form-control" id="inputGroupFile02">
+                                <input type="file" class="form-control" id="inputGroupFile02" >
         
                             </div>
+                            </form>
                         </form>
                         <div class="modal-footer">
-                            <input type="submit" id="save-btn-del" class="btn btn-danger" value="save" data-dismiss="modal">
+                            <input type="submit" id="save-clothes-btn" class="btn btn-danger" value="save" data-dismiss="modal">
                         </div>
                     </div>
                 </div>
@@ -581,20 +584,20 @@
         
                             <div class="input-group d-flex mb-3">
                                 <span class="input-group-text" >이름</span>
-                                <input type="text" aria-label="First name" class="form-control" value="이"readonly>
-                                <input type="text" aria-label="Last name" class="form-control" value="한솔"readonly>
+                                <input id = "firstName" type="text" aria-label="First name" class="form-control" value=""readonly>
+                                <input id = "lastName"type="text" aria-label="Last name" class="form-control" value=""readonly>
                             </div>
         
                             <div class="input-group d-flex mb-3">
                                 <span class="input-group-text" id="basic-addon1">Email</span>
-                                <input type="text" aria-label="Email address" class="form-control" placeholder ="enter your email address" value="이@dd.dd">
+                                <input id = "email" type="text" aria-label="Email address" class="form-control" placeholder ="enter your email address" value="이@dd.dd">
         
                                 
                             </div>
                             <div class="input-group d-flex mb-3">
-                                <span class="input-group-text" id="basic-addon1">비밀번호</span>
+                                <span class="input-group-text" id="basic-addon1">비밀번호 변경</span>
                                 <input type="password" class="form-control form-control-user"
-                                    id="exampleInputPassword" placeholder="Password">
+                                    id="profileInputPassword" placeholder="Password">
                             </div>
                             <div class="input-group d-flex mb-3">
                                 <span class="input-group-text" id="basic-addon1">비밀번호 확인</span>
@@ -637,6 +640,7 @@
             <script src="js/weather.js"></script>
 
             <script src="js/base.js"></script>
+            <script src="js/addClothes.js"></script>
 
 </body>
 

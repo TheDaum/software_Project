@@ -1,10 +1,49 @@
 // base
 
-var closets = ["closet1","closet2","closet3"];
+var closets=[]
 var target;
-$(document).ready(function(){
+var userId
+var Id
+var userName
+var userEmail
+$(document).ready(async function(){
+    userId=location.href
+    if(userId.indexOf("id",0)!=-1){
+        Id = userId.substring(userId.indexOf("id",0)+3);
+    }
+    
+    console.log(Id);    
+    axios.get('http://localhost:8080/user').then((Response) => {
+        data = Response.data;
+        Id=Id-1;
+        console.log
+        userEmail=data[Id].userEmail,
+        userName=data[Id].userName,
+        console.log(userEmail);
+        console.log(userName);
+    
+    })
+    axios.get('http://localhost:8080/closet').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            if(userEmail==data[i].closetUser){
+              closets.push(data[i].closetName);
+            }
+            
+        }
+        console.log(closets);
+    
+    })
+
+ 
+   
+    
+
     //closet 버튼 출력
-    print_closet();
+    setTimeout(function(){
+        print_closet()
+    },100);
+
     //collapse-item href 설정
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
        
@@ -34,9 +73,13 @@ $(document).ready(function(){
 
 });
 
+
+
+
+
 function print_closet(){
     var inner = $("#collapseCloset>.collapse-inner");
-    
+    console.log("ghoehoe");
     for(var i = 0;i<closets.length;i++){
         var d_flex = document.createElement("div");
         d_flex.classList.add("d-flex");
@@ -112,8 +155,15 @@ function print_closet(){
             del.innerText = "삭제";
             dropdown_menu.append(del);
         }
+        
 
     }
+    $("#userName").text(userName);
+    $("#btn-profile").click(function(){
+        $("#firstName").val(userName[0]);
+        $("#lastName").val(userName.substring(1));
+        $("#email").val(userEmail);
+    });
     $(".btn-edit").click(function(){        
         target = $(this).parent().parent().prev().text();
         // '(기본)'문자열이 포함되어 있으면 제거한다.
@@ -142,18 +192,20 @@ function print_closet(){
 }
 
 $("#save-btn").click(function(){
-    var text = $("#closetName").val();
-    if($("#default_closet_checkbox").is(":checked")){
+  /*  var text = $("#closetName").val();
+    if($("#default_closet_hceckbox").is(":checked")){
         closets.unshift(text);
     }
 
     else{
         closets.push(text);
-    }
+    }*/
 
     // 입력 초기화
     $("#closetName").val("");
     $("#default_closet_checkbox").prop("checked", false);
+
+
     //서버에 업데이트 필요
     // location.reload();
 });
