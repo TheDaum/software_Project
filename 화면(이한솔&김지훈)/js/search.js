@@ -113,6 +113,7 @@ function print_card(page_index){
         }
     }
 }
+
 function print_card_last(){
     var result_index = 9*(page_num-1);
     var container = $(".container-fluid");
@@ -172,6 +173,7 @@ function print_card_last(){
     }
 }
 
+
 $(".page-link").click(function(){
     $(".container-fluid").empty();
     var request_page = $(this).text();
@@ -190,5 +192,6 @@ $(".page-link").click(function(){
 
     print_card(request_page);
     current_page=request_page;
-
+    
 });
+

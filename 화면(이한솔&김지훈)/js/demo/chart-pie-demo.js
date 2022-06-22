@@ -33,12 +33,12 @@ $(document).ready(async function(){
   }axios.get('http://localhost:8080/user').then((Response) => {
     data = Response.data;
     console.log
-    userEmail=data[Id].userEmail
+    userEmail=data[idd].userEmail
 
   })
   
   //ddd
-  console.log(Id);    
+  console.log(idd);    
   axios.get('http://localhost:8080/clothes').then((Response) => {
       data = Response.data;
       for(var i=0; i<data.length;i++){

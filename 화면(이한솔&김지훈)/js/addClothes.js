@@ -6,8 +6,8 @@
    const clothesSeason = document.getElementById('seasonChoice');
    const multipartfile = document.getElementById('inputGroupFile02');
    var clothesUser;
-   var Id
-
+   var result=[];
+  var idd;
   $(document).ready(async function(){
     userId=location.href
     if(userId.indexOf("id",0)!=-1){
@@ -15,21 +15,34 @@
     }
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
-        console.log(Id) 
-        clothesUser=data[Id].userEmail
+        console.log(idd) 
+        clothesUser=data[iid].userEmail
         console.log(clothesUser)
     
-    })
+    });
+      axios.get('http://localhost:8080/closet').then((Response) => {
+           data = Response.data;
+           
+           for(var i = 0;i<data.length;i++){
+               if(userEmail==data[i].closetUser){
+                 result.push(data[i].closetName);
+               }
+               
+           }
+       
+        });
 
-    //closet들의 배열
-    var result = ['1','2','3'];
-    for(var i=0;i<result.length;i++){
-        var option = document.createElement("option");
-        $(option).val(result[i]);
-        $(option).text(result[i]);
+        //closet들의 배열
+        setTimeout(function(){
+        for(var i=0;i<result.length;i++){
+            var option = document.createElement("option");
+            $(option).val(result[i]);
+            $(option).text(result[i]);
 
-        $("#closetChoice").append(option);
-    }
+            $("#closetChoice").append(option);
+        }
+    },500)
+    
   });
 
 
