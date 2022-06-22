@@ -221,7 +221,7 @@ function print_card(page_index) {
 
             var title = document.createElement("h5");
             title.className = "card-title";
-            title.innerText = result_index;
+            title.innerText = totalName;
             card.append(title);
 
             var button = document.createElement("a");
