@@ -266,7 +266,7 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-            var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index++].totalPath;
+            var path = "c:/mycloset/mycloset/scr/main"+ 
             $(img).attr("src", path);
 
             // img.attr("alt","...");

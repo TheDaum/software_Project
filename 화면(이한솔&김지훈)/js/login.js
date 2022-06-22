@@ -14,7 +14,7 @@ $("#logincheck").click(async function () {
 
     }
     if(data[index].userPwd==$("#exampleInputPassword").val()){
-        $("#logincheck").attr("href","index.html"+data[index].id);
+        $("#logincheck").attr("href","index.html?id="+data[index].id);
     }
   }
   )
