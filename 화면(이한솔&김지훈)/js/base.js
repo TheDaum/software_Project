@@ -12,7 +12,6 @@ $(document).ready(async function(){
         Id = userId.substring(userId.indexOf("id",0)+3);
     }
     
-    console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
 <<<<<<< HEAD
