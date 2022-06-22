@@ -3,7 +3,7 @@
 var closets=[]
 var target;
 var userId
-var Id
+var Id;
 var userName
 var userEmail
 $(document).ready(async function(){
@@ -53,7 +53,6 @@ $(document).ready(async function(){
     });
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
-        console.log("계절");
         $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+Id);
     
     });
@@ -83,7 +82,6 @@ $("home-btn").click(function(){
 
 function print_closet(){
     var inner = $("#collapseCloset>.collapse-inner");
-    console.log("ghoehoe");
     for(var i = 0;i<closets.length;i++){
         var d_flex = document.createElement("div");
         d_flex.classList.add("d-flex");
@@ -94,6 +92,7 @@ function print_closet(){
         w_100.classList.add("w-100");
         w_100.classList.add("collapse-item");
         w_100.innerText = closets[i];
+        $(w_100).attr("href","closet.html?name="+escape($(w_100).text())+"&?id="+Id);
         if(i==0){
             w_100.innerText+="(기본)"
         }
