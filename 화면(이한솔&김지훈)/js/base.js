@@ -19,8 +19,6 @@ $(document).ready(async function(){
         console.log
         userEmail=data[Id].userEmail,
         userName=data[Id].userName,
-        console.log(userEmail);
-        console.log(userName);
     
     })
     axios.get('http://localhost:8080/closet').then((Response) => {
