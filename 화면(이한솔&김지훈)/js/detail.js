@@ -1,23 +1,36 @@
 var userId;
 var totalObj;
+var id;
+var clothesarr = [];
+var imagearr = [];
+var totalobj;
+var totalName;
+var totalClosets;
+var totalCategoryS;
+var totalBuys;
+var totalSeasons;
 
 $(document).ready(function(){
     userId = location.href
+    
+
     if (userId.indexOf("id", 0) != -1) {
-        Id = userId.substring(userId.indexOf("id", 0) + 3,address.indexOf("&", 0));
+        id = userId.substring(userId.indexOf("id", 0) + 3,userId.indexOf("&", 0));
+        id=parseInt(id);
+
     }
 
     var address = unescape(location.href);
-    if(address.indexOf("clothesId", 0) != -1) {
-        var txt = address.substring(address.indexOf("clothesId", 0)+10);
-    }
 
+    if(address.indexOf("clothesId", 0) != -1) {
+        var txt = userId.substring(userId.indexOf("clothesId", 0)+10);
+    }
+    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
         setTimeout(function () {
-            console.log(Id)
         }, 5);
-        userEmail = data[Id].userEmail
+        userEmail = data[id].userEmail
     });
 
     axios.get('http://localhost:8080/clothes').then((Response) => {
@@ -41,10 +54,8 @@ $(document).ready(function(){
                     clothesBuy: clothesBuys,
                     clothesSeason: clothesSeasons,
                 }
+                console.log(clothesobj)
                 clothesarr.push(clothesobj)
-
-
-
 
             }
 
@@ -53,6 +64,7 @@ $(document).ready(function(){
 
 
     });
+
     axios.get('http://localhost:8080/boardPicture').then((Response) => {
         data = Response.data;
 
@@ -60,6 +72,7 @@ $(document).ready(function(){
             imageobj = {
                 imageId: data[j].id,
                 imagepath: data[j].filePath
+
             }
             imagearr.push(imageobj)
         }
@@ -69,7 +82,7 @@ $(document).ready(function(){
         
         for(var i=0; i<clothesarr.length;i++){
             for(var j=0; j<imagearr.length;j++){
-    
+                
                 if(clothesarr[i].clothesId==txt&&imagearr[j].imageId==txt){
                     totalobj={
                         totalId: clothesarr[i].clothesId,
@@ -89,12 +102,12 @@ $(document).ready(function(){
                 
          }
         }
-
-        $("#basic-addon1").text(totalName);
-        $("#closetChoice").val(totalClosets);
-        $("#categoryChoice").val(totalCategoryS);
-        $("#clothesDate").val(totalBuys);
-        $("#seasonChoice").val(totalSeasons);
+        console.log(totalobj.totalName);
+        $("#name").val(totalobj.totalName);
+        $("#closetChoice").val(totalobj.totalClosets);
+        $("#categoryChoice").val(totalobj.totalCategoryS);
+        $("#clothesDate").val(totalobj.totalBuys);
+        $("#seasonChoice").val(totalobj.totalSeasons);
         //이미지 경로 넣기
         },100);
 });

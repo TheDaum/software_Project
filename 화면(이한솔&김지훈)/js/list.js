@@ -210,13 +210,11 @@ function print_card(page_index) {
             var img = document.createElement("img");
             img.className = "card-img-top";
             img.classList.add("rounded");
-<<<<<<< HEAD
-            var path = "http://localhost:8080"+totalarr[result_index].totalPath;
-            $(img).attr("src", path);
-=======
+
+        
+
             // var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index].totalPath;
             // $(img).attr("src", path);
->>>>>>> 64f6e234801c797fb24ab98957575a9bdb0396ed
 
             shadow.append(img);
             var card = document.createElement("div");
@@ -234,7 +232,7 @@ function print_card(page_index) {
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+(Id+1)+"&?clothesId="+totalarr[result_index++].totalId);
             card.append(button);
         }
     }
@@ -271,13 +269,9 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-<<<<<<< HEAD
-            var path = "http://localhost:8080"+totalarr[result_index].totalPath;
-            $(img).attr("src", path);
-=======
             // var path = "c:/mycloset/mycloset/scr/main";
             // $(img).attr("src", path);
->>>>>>> 64f6e234801c797fb24ab98957575a9bdb0396ed
+
 
             shadow.append(img);
 
@@ -292,11 +286,8 @@ function print_card_last() {
             card.append(title);
 
             var button = document.createElement("a");
-<<<<<<< HEAD
+
             $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
-=======
-            $(button).attr("href", "detail.html?id="+Id+"&?clotheId="+totalarr[result_index++].totalId);
->>>>>>> 64f6e234801c797fb24ab98957575a9bdb0396ed
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
