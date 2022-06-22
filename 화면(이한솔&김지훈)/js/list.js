@@ -1,8 +1,8 @@
 var pageType;
 
-var result_num = 20;
-var remainder = result_num % 9;
-var page_num = parseInt(result_num / 9) + 1;
+var result_num;
+var remainder;
+var page_num;
 var result_index = 0;
 
 var current_page = 1;
@@ -132,12 +132,11 @@ $(document).ready(async function () {
     },100);
     
     setTimeout(function(){
-        console.log(totalarr)
-        },110);
-});
+        result_num=totalarr.length;
+        remainder = result_num % 9;
+        page_num = parseInt(result_num / 9) + 1;
 
-$(document).ready(function () {
-    var ul = $(".pagination");
+        var ul = $(".pagination");
     for (var i = 0; i < page_num; i++) {
         if (i == 0) {
             continue;
@@ -176,8 +175,9 @@ $(document).ready(function () {
         });
 
     }
-    ;
+    
     print_card(1);
+        },100);
 });
 
 function print_card(page_index) {
@@ -210,8 +210,9 @@ function print_card(page_index) {
             var img = document.createElement("img");
             img.className = "card-img-top";
             img.classList.add("rounded");
-            $(img).attr("src", "/img/background.jpg");
-            // img.attr("alt","...");
+            var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index++].totalPath;
+            $(img).attr("src", path);
+
             shadow.append(img);
             var card = document.createElement("div");
             card.classList.add("card-body");
@@ -230,7 +231,6 @@ function print_card(page_index) {
             button.innerText = "show details";
             $(button).attr("href", "detail.html");
             card.append(button);
-            result_index++;
         }
     }
 }
@@ -266,7 +266,8 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-            $(img).attr("src", "/img/background.jpg");
+            var path = "c:/mycloset/mycloset/scr/main"+totalarr[result_index++].totalPath;
+            $(img).attr("src", path);
 
             // img.attr("alt","...");
             shadow.append(img);
@@ -287,7 +288,6 @@ function print_card_last() {
             button.classList.add("btn-danger");
             button.innerText = "show details";
             card.append(button);
-            result_index++;
 
         }
     }
