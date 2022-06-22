@@ -214,7 +214,7 @@ function print_card(page_index) {
 
         
 
-            var path = "http://localhost:8080/files/1dddddd.jpg";
+            var path = "http://localhost:8080"+totalarr[result_index].totalPath;
             $(img).attr("src", path);
 
             shadow.append(img);
@@ -270,7 +270,7 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-            var path = "http://localhost:8080/files/1dddddd.jpg";
+            var path = "http://localhost:8080"+totalarr[result_index].totalPath;
             $(img).attr("src", path);
 
 

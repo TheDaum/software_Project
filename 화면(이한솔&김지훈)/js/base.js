@@ -15,7 +15,7 @@ $(document).ready(async function(){
     console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
-        Id=Id-1;
+        Id
         console.log(Id)
         userEmail=data[Id].userEmail,
         userName=data[Id].userName
