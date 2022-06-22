@@ -21,7 +21,6 @@ $(document).ready(async function () {
     userId = location.href
     if (userId.indexOf("id", 0) != -1) {
         Id = userId.substring(userId.indexOf("id", 0) + 3);
-        idd=Id;
     }
 
     var address = unescape(location.href);
@@ -47,7 +46,7 @@ $(document).ready(async function () {
         setTimeout(function () {
             console.log(Id)
         }, 5);
-        userEmail = data[idd].userEmail
+        userEmail = data[Id-1].userEmail
         console.log(userEmail)
     });
 
@@ -214,7 +213,7 @@ function print_card(page_index) {
 
         
 
-            var path = "http://localhost:8080"+totalarr[result_index].totalPath;
+            var path = "http://localhost:8080/"+totalarr[result_index].totalPath;
             $(img).attr("src", path);
 
             shadow.append(img);
@@ -270,7 +269,7 @@ function print_card_last() {
             var img = document.createElement("img");
             img.classList.add("card-img-top");
             img.classList.add("rounded");
-            var path = "http://localhost:8080"+totalarr[result_index].totalPath;
+            var path = "http://localhost:8080/"+totalarr[result_index].totalPath;
             $(img).attr("src", path);
 
 

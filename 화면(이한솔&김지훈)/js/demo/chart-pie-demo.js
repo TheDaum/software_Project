@@ -32,8 +32,8 @@ $(document).ready(async function(){
       Id = userId.substring(userId.indexOf("id",0)+3);
   }axios.get('http://localhost:8080/user').then((Response) => {
     data = Response.data;
-    console.log
-    userEmail=data[idd].userEmail
+    console.log(Id)
+    userEmail=data[Id-1].userEmail
 
   })
   
