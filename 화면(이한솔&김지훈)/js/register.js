@@ -42,8 +42,7 @@ $("#registerAccount").click(async function () {
    const email = document.getElementById('exampleInputEmail');
    const password = document.getElementById('exampleInputPassword');
    const closet = document.getElementById('exampleClosetName');
-  console.log(state);
-  console.log('5');
+
    if(state){
    try {
       let res = await axios({
@@ -64,7 +63,7 @@ $("#registerAccount").click(async function () {
          },
       });
     
-      console.log(res);
+      $("#registerAccount").attr("href","login.html");
    } catch (err) {
       console.log(err);
       throw new Error(err);
