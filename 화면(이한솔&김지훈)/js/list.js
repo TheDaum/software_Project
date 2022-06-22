@@ -1,3 +1,5 @@
+var pageType;
+
 var result_num = 20;
 var remainder = result_num % 9;
 var page_num = parseInt(result_num / 9) + 1;
@@ -21,6 +23,22 @@ $(document).ready(async function () {
         Id = userId.substring(userId.indexOf("id", 0) + 3);
     }
 
+    var address = unescape(location.href);
+    if(address.indexOf("category", 0) != -1) {
+        var txt = address.substring(address.indexOf("category", 0)+9);
+        $("#title>.h3:last").text(txt);
+        pageType=0;
+    }
+    else if(address.indexOf("Season", 0) != -1) {
+        var txt = address.substring(address.indexOf("Season", 0)+7);
+        $("#title>.h3:last").text(txt);
+        pageType = 1;
+    }
+    else if(address.indexOf("name", 0) != -1) {
+        title = address.substring(address.indexOf("name", 0)+5);
+        $("#title>.h3:last").text(title);
+        pageType = 2;
+    }
 
     console.log(Id);
     axios.get('http://localhost:8080/user').then((Response) => {
