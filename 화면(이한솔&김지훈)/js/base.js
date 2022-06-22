@@ -12,7 +12,7 @@ $(document).ready(async function(){
     if(userId.indexOf("id",0)!=-1){
         Id = userId.substring(userId.indexOf("id",0)+3);
     }
-    idd=Id-1
+    idd=Id-1;
     
     console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
@@ -35,7 +35,7 @@ $(document).ready(async function(){
     
     })
 
-    $("#home-btn").attr("href","index.html?id="+idd);
+    $("#home-btn").attr("href","index.html?id="+id);
    
     
 

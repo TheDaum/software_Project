@@ -1,3 +1,5 @@
+var key;
+
 var result_num = 20;
 var remainder = result_num%9;
 var page_num = parseInt(result_num/9)+1;
@@ -6,6 +8,14 @@ var result_index = 0;
 var current_page=1;
 
 $(document).ready(function(){
+    userId = unescape(location.href);
+    if (userId.indexOf("id", 0) != -1) {
+        Id = userId.substring(userId.indexOf("id", 0) + 3);
+    }
+    if (userId.indexOf("key", 0) != -1) {
+        key = userId.substring(userId.indexOf("key", 0) + 4);
+    }
+    
     var ul = $(".pagination");
     for(var i = 0;i<page_num;i++){
         if (i==0){
