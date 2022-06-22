@@ -7,11 +7,15 @@
    const multipartfile = document.getElementById('inputGroupFile02');
    var clothesUser;
    var result=[];
-  var idd;
+    var idd;
   $(document).ready(async function(){
     userId=location.href
     if(userId.indexOf("id",0)!=-1){
         Id = userId.substring(userId.indexOf("id",0)+3);
+        console.log(Id)
+        idd=Id;
+        console.log(idd)
+
     }
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;

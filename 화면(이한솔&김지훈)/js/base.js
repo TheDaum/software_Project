@@ -38,7 +38,7 @@ $(document).ready(async function(){
     $("#home-btn").attr("href","index.html?id="+id);
    
     
-
+ 
     //closet 버튼 출력
     setTimeout(function(){
         print_closet();
