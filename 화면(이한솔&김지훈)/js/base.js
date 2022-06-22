@@ -33,7 +33,10 @@ $(document).ready(async function(){
     
     })
 
-    $("#home-btn").attr("href","index.html?id="+Id);
+    $("hone-btn").click(function(){
+
+        $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+    })
    
     
 
@@ -76,7 +79,10 @@ $(document).ready(async function(){
     });
 
 });
+$("hone-btn").click(function(){
 
+    $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
+})
 
 function print_closet(){
     var inner = $("#collapseCloset>.collapse-inner");
