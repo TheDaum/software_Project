@@ -69,7 +69,11 @@ $(document).ready(async function(){
     
     });
 
+    $("#btn-search").click(function () {
+        console.log($(this));
+        $("#btn-search").attr("href","search.html?key="+escape($("#text-search").val())+"&?id="+Id);
     
+    });
 
 });
 
