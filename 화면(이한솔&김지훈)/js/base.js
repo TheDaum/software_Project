@@ -80,7 +80,6 @@ $(document).ready(async function(){
 
 });
 $("hone-btn").click(function(){
-
     $("#home-btn").attr("href","index.html?id="+parseInt(Id)+1);
 })
 
