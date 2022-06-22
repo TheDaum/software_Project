@@ -38,7 +38,6 @@ $(document).ready(async function(){
   })
   
   //ddd
-  console.log(idd);    
   axios.get('http://localhost:8080/clothes').then((Response) => {
       data = Response.data;
       for(var i=0; i<data.length;i++){

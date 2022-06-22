@@ -1,6 +1,6 @@
 var userId;
 var totalObj;
-var id;
+var Id;
 var clothesarr = [];
 var imagearr = [];
 var totalobj;
@@ -20,8 +20,8 @@ $(document).ready(function(){
     
 
     if (userId.indexOf("id", 0) != -1) {
-        id = userId.substring(userId.indexOf("id", 0) + 3,userId.indexOf("&", 0));
-        idd=parseInt(id);
+        Id = userId.substring(userId.indexOf("id", 0) + 3,userId.indexOf("&", 0));
+        
         
 
     }
@@ -37,7 +37,7 @@ $(document).ready(function(){
         data = Response.data;
         console.log(data[0].userEmail); 
        
-        userEmail = data[idd].userEmail;
+        userEmail = data[Id-1].userEmail;
         console.log(data[0].userEmail);
     });
 
@@ -86,8 +86,8 @@ $(document).ready(function(){
         }
     });
 
-    setTimeout(function(){
-        
+    
+        setTimeout(function(){
         for(var i=0; i<clothesarr.length;i++){
             for(var j=0; j<imagearr.length;j++){
                 
@@ -120,30 +120,35 @@ $(document).ready(function(){
                   result.push(data[i].closetName);
                 }
                 
-            }
+            }console.log(result.length)
         
         });
-
+    },200);
+    setTimeout(function(){
+        console.log(result)
+    },400)
         //closet들의 배열
         setTimeout(function(){
         for(var i=0;i<result.length;i++){
+            console.log("1")
             var option = document.createElement("option");
             $(option).val(result[i]);
             $(option).text(result[i]);
 
-            $("#closetChoice").append(option);
+            $("#closetdetail").append(option);
         }
-    },)
+    
         //이미지 경로 넣기
-     },100);
+        },500);
         setTimeout(function(){
-        console.log('hi')
+        console.log(totalobj)
         $("#name").val(totalobj.totalName);
-        $("#closetChoice").val(totalobj.totalClosets);
+        $("#closetdetail").val(totalobj.totalClosets);
         $("#categoryChoice").val(totalobj.totalCategoryS);
         $("#clothesDate").val(totalobj.totalBuys);
         $("#seasonChoice").val(totalobj.totalSeasons);
-        },700);
+        $("#detail-image").attr("src","http://localhost:8080/"+totalobj.totalPath)
+        },1000);
 
      
 });

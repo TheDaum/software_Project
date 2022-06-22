@@ -64,6 +64,17 @@ function getWeather(lat, lon) {
 init();
 
 function setRecommend(){
+    axios.get('http://localhost:8080/boardPicture').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            if(userEmail==data[i].clothesUser&&data[i].clothesSeason==season){
+              result.push(data[i].Id);
+            }
+            
+        }
+        console.log(result);
+    
+    });
     var season;
     if(tmp<=2.2){
         season="winter";
@@ -83,17 +94,20 @@ function setRecommend(){
         data = Response.data;
         for(var i = 0;i<data.length;i++){
             if(userEmail==data[i].clothesUser&&data[i].clothesSeason==season){
-              result.push(data[i].clothesSeason);
+              result.push(data[i].Id);
             }
             
         }
         console.log(result);
     
     });
+    
 
-     setTimeout(function(){
-     var rand = Math.floor(Math.random() * (result.length));
-    // $("#recommendImg").attr("src","");
+    setTimeout(function(){
+     
+    var rand = Math.floor(Math.random() * (result.length));
+    var path1= "http://localhost:8080/"+totalarr[rand].totalPath;
+    $("#recommendImg").attr("src","path1");
      console.log(tmp);
      
    },50);

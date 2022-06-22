@@ -21,21 +21,27 @@ $(document).ready(async function () {
     userId = location.href
     if (userId.indexOf("id", 0) != -1) {
         Id = userId.substring(userId.indexOf("id", 0) + 3);
+        
+        if(Id.indexOf("&",0)!=-1){
+            Id = Id.substring(0,Id.indexOf("&", 0));
+        }
     }
 
     var address = unescape(location.href);
     if(address.indexOf("category", 0) != -1) {
-        var txt = address.substring(address.indexOf("category", 0)+9,address.indexOf("&", 0));
+        var txt = address.substring(address.indexOf("category", 0)+9);
+        
         $("#title>.h3:last").text(txt);
         pageType=0;
     }
     else if(address.indexOf("Season", 0) != -1) {
-        var txt = address.substring(address.indexOf("Season", 0)+7,address.indexOf("&", 0));
+        var txt = address.substring(address.indexOf("Season", 0)+7);
+        console.log(txt);
         $("#title>.h3:last").text(txt);
         pageType = 1;
     }
     else if(address.indexOf("name", 0) != -1) {
-        var txt = address.substring(address.indexOf("name", 0)+5,address.indexOf("&", 0));
+        var txt = address.substring(address.indexOf("name", 0)+5);
         $("#title>.h3:last").text(txt);
         pageType = 2;
     }
@@ -100,7 +106,7 @@ $(document).ready(async function () {
         
     for(var i=0; i<clothesarr.length;i++){
         for(var j=0; j<imagearr.length;j++){
-
+            console.log(clothesarr[i].clothesCloset)
             if(pageType==0&&clothesarr[i].clothesCategory==txt&&clothesarr[i].clothesId==imagearr[j].imageId){
                 totalobj={
                     totalId: clothesarr[i].clothesId,
@@ -116,7 +122,7 @@ $(document).ready(async function () {
                     totalPath: imagearr[j].imagepath,
                 }
                 totalarr.push(totalobj)
-            }else if(pageType==2&&clothesarr[i].clothescloset==txt&&clothesarr[i].clothesId==imagearr[j].imageId){
+            }else if(pageType==2&&clothesarr[i].clothesCloset==txt&&clothesarr[i].clothesId==imagearr[j].imageId){
                 totalobj={
                     totalId: clothesarr[i].clothesId,
                     totalName: clothesarr[i].clothesName,
@@ -224,15 +230,15 @@ function print_card(page_index) {
 
             var title = document.createElement("h5");
             title.className = "card-title";
-            title.innerText = totalName;
+            title.innerText = totalarr[result_index].totalName;
             card.append(title);
 
             var button = document.createElement("a");
-            $(button).attr("href", "detail.html?id="+idd+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+(Id)+"&?clothesId="+totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html?id="+idd+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
             card.append(button);
         }
     }
@@ -282,12 +288,12 @@ function print_card_last() {
 
             var title = document.createElement("h5");
             title.className = "card-title";
-            title.innerText = result_index;
+            title.innerText = totalarr[result_index].totalName;
             card.append(title);
 
             var button = document.createElement("a");
 
-            $(button).attr("href", "detail.html?id="+idd+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";

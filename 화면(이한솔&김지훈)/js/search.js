@@ -4,8 +4,11 @@ var result_num = 20;
 var remainder = result_num % 9;
 var page_num = parseInt(result_num / 9) + 1;
 var result_index = 0;
-
+var clothesobj;
+var clothesarr=[];
 var current_page = 1;
+var imagearr=[];
+var totalarr=[];
 
 $(document).ready(function () {
     userId = unescape(location.href);
@@ -21,7 +24,7 @@ $(document).ready(function () {
         setTimeout(function () {
             console.log(Id)
         }, 5);
-        userEmail = data[idd].userEmail
+        userEmail = data[Id-1].userEmail
         console.log(userEmail)
     });
 
@@ -174,7 +177,7 @@ function print_card(page_index) {
 
 
 
-            var path = "http://localhost:8080/files/1dddddd.jpg";
+            var path = "http://localhost:8080/"+totalarr[result_index].totalPath;
             $(img).attr("src", path);
 
             shadow.append(img);
@@ -185,15 +188,14 @@ function print_card(page_index) {
 
             var title = document.createElement("h5");
             title.className = "card-title";
-            title.innerText = totalName;
+            title.innerText = totalarr[result_index].totalName;
             card.append(title);
 
             var button = document.createElement("a");
-            $(button).attr("href", "detail.html?id=" + idd + "&?clothesId=" + totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html?id=" + idd + "&?clothesId=" + totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id=" + Id + "&?clothesId=" + totalarr[result_index++].totalId);
             card.append(button);
         }
     }
@@ -243,12 +245,12 @@ function print_card_last() {
 
             var title = document.createElement("h5");
             title.className = "card-title";
-            title.innerText = result_index;
+            title.innerText = totalarr[result_index].totalName;
             card.append(title);
 
             var button = document.createElement("a");
 
-            $(button).attr("href", "detail.html?id=" + idd + "&?clothesId=" + totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html?id=" + Id + "&?clothesId=" + totalarr[result_index++].totalId);
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";

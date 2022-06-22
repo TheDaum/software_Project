@@ -8,11 +8,14 @@ var userName
 var userEmail
 $(document).ready(async function(){
     userId=location.href
-    if(userId.indexOf("id",0)!=-1){
-        Id = userId.substring(userId.indexOf("id",0)+3);
-        console.log(Id)
+    if (userId.indexOf("id", 0) != -1) {
+        Id = userId.substring(userId.indexOf("id", 0) + 3);
+        
+        if(Id.indexOf("&",0)!=-1){
+            Id = Id.substring(0,Id.indexOf("&", 0));
+        }
     }
-    
+    console.log(Id);
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
 
@@ -47,38 +50,35 @@ $(document).ready(async function(){
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
 
        
-        $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","categories.html"+"?id="+Id+"&?category="+escape($(this).text()));
 
     
     });
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
-        $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","season.html"+"?id="+Id+"&?Season="+escape($(this).text()));
     
     });
 
     $("#collapseCloset>.collapse-inner>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","closet.html"+"?id="+Id+"&?name="+escape($(this).text()));
     
     });
 
-    $("#collapseCloset>.collapse-inner>.d-flex>.collapse-item").each(function (index, item) {
-       
-        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
     
-    });
 
     $("#btn-search").click(function () {
-        console.log($(this));
-        $("#btn-search").attr("href","search.html?key="+escape($("#text-search").val())+"&?id="+Id);
+        $("#btn-search").attr("href","search.html"+"?id="+Id+"&?key="+escape($("#text-search").val()));
     
     });
-
+    
+    $("#home-btn").click(function(){
+        $("#home-btn").attr("href","index.html?id="+Id);
+    });
 });
-$("home-btn").click(function(){
-    $("#home-btn").attr("href","index.html?id="+Id);
-})
+
+
 
 function print_closet(){
     var inner = $("#collapseCloset>.collapse-inner");
@@ -92,7 +92,7 @@ function print_closet(){
         w_100.classList.add("w-100");
         w_100.classList.add("collapse-item");
         w_100.innerText = closets[i];
-        $(w_100).attr("href","closet.html?name="+escape($(w_100).text())+"&?id="+Id);
+        $(w_100).attr("href","closet.html"+"?id="+Id+"&?name="+escape($(w_100).text()));
         if(i==0){
             w_100.innerText+="(기본)"
         }
