@@ -9,13 +9,16 @@ $("#registerAccount").click(async function () {
   axios.get('http://localhost:8080/user').then((Response)=>{
   data=Response.data;
   for(var i = 0;i<data.length;i++){
-    console.log(data[i].userEmail);
     if($("#exampleInputEmail").val()==data[i].userEmail){
       state=false;
       alert("이미 존재하는 이메일 입니다.");
-      console.log(state);
-      console.log('1');
       break;
+    }
+    //이메일 주소 확인하기
+    else if(!checkIt($("#exampleInputEmail"))){
+      alert("이메일형식이 올바르지 않습니다.");
+
+      $("#exampleInputEmail").focus();
     }
     else{
       state=true;
@@ -69,3 +72,17 @@ $("#registerAccount").click(async function () {
   }
 
 });
+
+function checkIt(email){
+  var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+    if(exptext.test(email.val())==false){
+
+    //이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+
+   
+
+    return false;
+    }
+  return true;
+}

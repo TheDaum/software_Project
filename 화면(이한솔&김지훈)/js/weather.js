@@ -1,12 +1,12 @@
 const API_KEY = "b06c41ccee7ab5cece7b8d69daf90f57"; //add your API KEY 
 const COORDS = 'coords'; //좌표를 받을 변수 
-var feels_like;
 //DOM객체들 
 const weatherInfo1 = document.querySelector('.weatherInfo1');
 const weatherInfo2 = document.querySelector('.weatherInfo2');
 const weatherInfo3 = document.querySelector('.weatherInfo3');
 const weatherIconImg = document.querySelector('.weatherIcon');
 
+var tmp;
 //초기화 
 function init() {
     askForCoords();
@@ -43,7 +43,7 @@ function getWeather(lat, lon) {
         const temperature = Math.round(json.main.temp);
         const max_temperature = Math.round(json.main.temp_max);
         const min_temperature = Math.round(json.main.temp_min);
-        feels_like = Math.round(json.main.feels_like);
+        const feels_like = Math.round(json.main.feels_like);
         const place = json.name;
         const weatherDescription = json.weather[0].description;
         const weatherIcon = json.weather[0].icon;
@@ -53,26 +53,33 @@ function getWeather(lat, lon) {
         weatherInfo2.innerText = `${place}`;
         weatherInfo3.innerText = `${max_temperature} °C / ${min_temperature} °C 체감온도 : ${feels_like} °C`;
         weatherIconImg.setAttribute('src', weatherIconAdrs);
+        tmp = `${feels_like}`;
+
+        setRecommend(); 
     })
     .catch((error) => console.log("error:", error));
 }
 init();
 
-$(document).ready(function(){
-    var season=[];
-    if(feels_like<9){
-        season.push("winter");
+function setRecommend(){
+    var season;
+    if(tmp<=2.2){
+        season="winter";
     }
-    else if(19<feels_like){
-        season.push("summer");
+    else if(3.9<tmp && tmp<=12.6){
+        season="spring";
+    }
+    else if(12.9<tmp && tmp<=20){
+        season="fall";
     }
     else{
-        season.push("fall");
-        season.push("spring");
+        season="summer";
     }
-
+    //season으로 검색
     var result = []
     var rand = Math.floor(Math.random() * (result.length));
     // $("#recommendImg").attr("src","");
+    console.log(tmp);
+    $("#recommendText").text("오늘의 체감온도는 "+tmp+"입니다.")
     
-});
+}

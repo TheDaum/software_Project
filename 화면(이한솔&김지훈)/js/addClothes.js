@@ -43,7 +43,6 @@ $("#save-clothes-btn").click(async function () {
           clothesSeason: clothesSeason.value
        },
     });
-    console.log("clotehs");
     let res2 = await axios({
       method: 'POST',
       url: 'http://localhost:8080/boardPicture',
