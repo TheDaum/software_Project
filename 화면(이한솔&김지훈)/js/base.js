@@ -6,21 +6,23 @@ var userId
 var Id
 var userName
 var userEmail
+var idd;
 $(document).ready(async function(){
     userId=location.href
     if(userId.indexOf("id",0)!=-1){
         Id = userId.substring(userId.indexOf("id",0)+3);
     }
+    idd=Id-1
     
     console.log(Id);    
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
-        Id=Id-1;
-        console.log(Id)
-        userEmail=data[Id].userEmail,
-        userName=data[Id].userName
+        idd=Id-1;
+        console.log(idd)
+        userEmail=data[idd].userEmail,
+        userName=data[idd].userName
     
-    })
+    });
     axios.get('http://localhost:8080/closet').then((Response) => {
         data = Response.data;
         for(var i = 0;i<data.length;i++){
@@ -33,7 +35,7 @@ $(document).ready(async function(){
     
     })
 
-    $("#home-btn").attr("href","index.html?id="+Id);
+    $("#home-btn").attr("href","index.html?id="+idd);
    
     
 
@@ -46,26 +48,26 @@ $(document).ready(async function(){
     $("#collapseCategory>.collapse-inner>.collapse-item").each(function (index, item) {
 
        
-        $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","categories.html?category="+escape($(this).text())+"&?id="+idd);
 
     
     });
 
     $("#collapseSeason>.collapse-inner>.collapse-item").each(function (index, item) {
         console.log("계절");
-        $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","season.html?Season="+escape($(this).text())+"&?id="+idd);
     
     });
 
     $("#collapseCloset>.collapse-inner>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+idd);
     
     });
 
     $("#collapseCloset>.collapse-inner>.d-flex>.collapse-item").each(function (index, item) {
        
-        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+Id);
+        $(item).attr("href","closet.html?name="+escape($(this).text())+"&?id="+idd);
     
     });
 
