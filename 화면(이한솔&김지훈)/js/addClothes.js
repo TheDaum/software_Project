@@ -10,13 +10,15 @@
     var idd;
   $(document).ready(async function(){
     userId=location.href
-    if (userId.indexOf("id", 0) != -1) {
-      Id = userId.substring(userId.indexOf("id", 0) + 3);
-      
-      if(Id.indexOf("&",0)!=-1){
+    if(userId.indexOf("id",0)!=-1){
+        Id = userId.substring(userId.indexOf("id",0)+3);
+        console.log(Id)
+
+        if(Id.indexOf("&",0)!=-1){
           Id = Id.substring(0,Id.indexOf("&", 0));
-      }
-  }
+        }
+//이부분 다시보기
+    }
     axios.get('http://localhost:8080/user').then((Response) => {
         data = Response.data;
         console.log(idd) 
@@ -81,4 +83,5 @@ $("#save-clothes-btn").click(async function () {
     console.log(err);
     throw new Error(err);
     }
+    location.reload();
   });

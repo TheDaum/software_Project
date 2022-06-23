@@ -6,7 +6,7 @@ const weatherInfo2 = document.querySelector('.weatherInfo2');
 const weatherInfo3 = document.querySelector('.weatherInfo3');
 const weatherIconImg = document.querySelector('.weatherIcon');
 
-
+var pathArr=[];
 
 var tmp;
 //초기화 
@@ -64,50 +64,58 @@ function getWeather(lat, lon) {
 init();
 
 function setRecommend(){
-    axios.get('http://localhost:8080/boardPicture').then((Response) => {
-        data = Response.data;
-        for(var i = 0;i<data.length;i++){
-            if(userEmail==data[i].clothesUser&&data[i].clothesSeason==season){
-              result.push(data[i].Id);
-            }
-            
-        }
-        console.log(result);
     
-    });
     var season;
     if(tmp<=2.2){
-        season="winter";
+        season="겨울";
     }
     else if(3.9<tmp && tmp<=12.6){
-        season="spring";
+        season="봄";
     }
     else if(12.9<tmp && tmp<=20){
-        season="fall";
+        season="가을";
     }
     else{
-        season="summer";
+        season="여름";
     }
     //season으로 검색
     var result = [];
     axios.get('http://localhost:8080/clothes').then((Response) => {
         data = Response.data;
         for(var i = 0;i<data.length;i++){
+            console.log(data[i]);
             if(userEmail==data[i].clothesUser&&data[i].clothesSeason==season){
-              result.push(data[i].Id);
+              result.push(data[i].id);
             }
             
         }
         console.log(result);
     
     });
+
+    axios.get('http://localhost:8080/boardPicture').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            for(var j=0 ;j<result.length;j++){
+                if(data[i].id==result[j]){
+                console.log(data[i].filePath)
+                 pathArr.push(data[i].filePath)
+                }
+            }
+            
+        }
+        
+    
+    });
     
 
     setTimeout(function(){
-     
-    var rand = Math.floor(Math.random() * (result.length));
-    var path1= "http://localhost:8080/"+totalarr[rand].totalPath;
-    $("#recommendImg").attr("src","path1");
+        console.log(pathArr)
+    var rand = Math.floor(Math.random() * (pathArr.length));
+    console.log(rand)
+    console.log(pathArr)
+    var path1= "http://localhost:8080/"+pathArr[rand];
+    $("#recommendImg").attr("src",path1);
      console.log(tmp);
      
    },50);

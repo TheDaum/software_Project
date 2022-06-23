@@ -21,6 +21,7 @@ var priority;
 var result=[];
 var idd;
 var userEmail;
+var prevpagetype
 $(document).ready(function(){
     userId = location.href
     
@@ -28,12 +29,19 @@ $(document).ready(function(){
     if (userId.indexOf("id", 0) != -1) {
         Id = userId.substring(userId.indexOf("id", 0) + 3,userId.indexOf("&", 0));
         
-        
-
     }
 
     var address = unescape(location.href);
 
+    if(address.indexOf("category",0)!=-1){
+        prevpagetype=0;
+    }
+    else if(address.indexOf("season",0)!=-1){
+        prevpagetype=1;
+    }
+    else if(address.indexOf("name",0)!=-1){
+        prevpagetype=2;
+    }
     if(address.indexOf("clothesId", 0) != -1) {
         var txt = userId.substring(userId.indexOf("clothesId", 0)+10);
         
@@ -78,7 +86,30 @@ $(document).ready(function(){
 
 
     });
-
+    $("#save-btn-del").click(async function(){
+        console.log(totalobj.totalId)
+        try {
+            let res = await axios({
+               method: 'PUT',
+               url: 'http://localhost:8080/clothes/'+ totalobj.totalId,
+               data: {
+                clothesUser: userEmail,
+                clothesName: clothesName.value,
+                clothesCloset: clothesCloset.value,
+                clothesCategory: clothesCategory.value,
+                clothesBuy: clothesBuy.value,
+                clothesSeason: clothesSeason.value
+               },
+            });
+          } catch (err) {
+            console.log(err);
+            throw new Error(err);
+          }
+          
+    
+    
+        location.reload();
+    });
     axios.get('http://localhost:8080/boardPicture').then((Response) => {
         data = Response.data;
 
@@ -157,9 +188,20 @@ $(document).ready(function(){
         },1000);
 
 
+
 });
 $("#clothes-del").click(function(){
 $("#save-btn-del-clothes").click(async function(){
+    console.log(prevpagetype)
+      if(prevpagetype==0){
+        location.href = "category.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    }
+    else if(prevpagetype==0){
+        location.href = "season.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    }
+    else if(prevpagetype==0){
+        location.href = "closet.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    }
     console.log(totalobj.totalId)
     try {
         let res = await axios({
@@ -177,37 +219,7 @@ $("#save-btn-del-clothes").click(async function(){
           method:  'DELETE',
           url: 'http://localhost:8080/boardPicture/'+ totalobj.totalId,
       });
-
-
-    location.reload();
+      
 });
 });
-
-$("#clothes-del").click(function(){
-    $("#save-btn-del-clothes").click(async function(){
-        console.log(totalobj.totalId)
-        try {
-            let res = await axios({
-               method: 'PUT',
-               url: 'http://localhost:8080/clothes/'+ totalobj.totalId,
-               data: {
-                clothesUser: userEmail,
-                clothesName: clothesName.value,
-                clothesCloset: clothesCloset.value,
-                clothesCategory: clothesCategory.value,
-                clothesBuy: clothesBuy.value,
-                clothesSeason: clothesSeason.value
-               },
-            });
-          } catch (err) {
-            console.log(err);
-            throw new Error(err);
-          }
-          
-    
-    
-        location.reload();
-    });
-    });
-
 
