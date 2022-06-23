@@ -32,11 +32,11 @@ $(document).ready(function(){
     }
 
     var address = unescape(location.href);
-
+console.log(userId)
     if(address.indexOf("category",0)!=-1){
         prevpagetype=0;
     }
-    else if(address.indexOf("season",0)!=-1){
+    else if(address.indexOf("Season",0)!=-1){
         prevpagetype=1;
     }
     else if(address.indexOf("name",0)!=-1){
@@ -147,7 +147,6 @@ $(document).ready(function(){
                 
          }
         }
-        console.log(totalobj);
         
         axios.get('http://localhost:8080/closet').then((Response) => {
             data = Response.data;
@@ -189,19 +188,22 @@ $(document).ready(function(){
 
 
 
+
 });
 $("#clothes-del").click(function(){
 $("#save-btn-del-clothes").click(async function(){
     console.log(prevpagetype)
-      if(prevpagetype==0){
-        location.href = "category.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    console.log(prevpagetype)
+    if(prevpagetype==0){
+        window.location.href = "categories.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
     }
-    else if(prevpagetype==0){
-        location.href = "season.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    else if(prevpagetype==1){
+        window.location.href = "season.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
     }
-    else if(prevpagetype==0){
-        location.href = "closet.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    else if(prevpagetype==2){
+        window.location.href = "closet.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
     }
+});
     console.log(totalobj.totalId)
     try {
         let res = await axios({
@@ -221,5 +223,5 @@ $("#save-btn-del-clothes").click(async function(){
       });
       
 });
-});
+
 
