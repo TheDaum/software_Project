@@ -266,7 +266,7 @@ function print_closet(){
     });
 }
 
-$("#save-btn-closet").click(async function () {
+$("#save-btn").click(async function () {
     console.log(userEmail)
     console.log(closetName.value)
     try {
