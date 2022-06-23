@@ -1,3 +1,10 @@
+
+   const clothesName =document.getElementById('name');
+   const clothesCloset = document.getElementById('closetdetail');
+   const clothesCategory = document.getElementById('categoryChoice1');
+   const clothesBuy = document.getElementById('clothesDate');
+   const clothesSeason = document.getElementById('seasonChoice1');
+
 var userId;
 var totalObj;
 var Id;
@@ -10,7 +17,6 @@ var totalCategoryS;
 var totalBuys;
 var totalSeasons;
 var closetUser;
-var closetName;
 var priority;
 var result=[];
 var idd;
@@ -150,5 +156,58 @@ $(document).ready(function(){
         $("#detail-image").attr("src","http://localhost:8080/"+totalobj.totalPath)
         },1000);
 
-     
+
 });
+$("#clothes-del").click(function(){
+$("#save-btn-del-clothes").click(async function(){
+    console.log(totalobj.totalId)
+    try {
+        let res = await axios({
+           method: 'DELETE',
+           url: 'http://localhost:8080/clothes/'+ totalobj.totalId,
+           data: {
+                
+           },
+        });
+      } catch (err) {
+        console.log(err);
+        throw new Error(err);
+      }
+      let res2 = await axios({
+          method:  'DELETE',
+          url: 'http://localhost:8080/boardPicture/'+ totalobj.totalId,
+      });
+
+
+    location.reload();
+});
+});
+
+$("#clothes-del").click(function(){
+    $("#save-btn-del-clothes").click(async function(){
+        console.log(totalobj.totalId)
+        try {
+            let res = await axios({
+               method: 'PUT',
+               url: 'http://localhost:8080/clothes/'+ totalobj.totalId,
+               data: {
+                clothesUser: userEmail,
+                clothesName: clothesName.value,
+                clothesCloset: clothesCloset.value,
+                clothesCategory: clothesCategory.value,
+                clothesBuy: clothesBuy.value,
+                clothesSeason: clothesSeason.value
+               },
+            });
+          } catch (err) {
+            console.log(err);
+            throw new Error(err);
+          }
+          
+    
+    
+        location.reload();
+    });
+    });
+
+

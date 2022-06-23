@@ -225,9 +225,9 @@
                             <form>
                             
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1" >이름</span>
+                                    <span class="input-group-text" id="basic-addon12" >이름</span>
                                     <input id = "name" type="text" class="form-control" placeholder="name" aria-label="clothename"
-                                        aria-describedby="basic-addon1" value = "이름">
+                                        aria-describedby="basic-addon1" value = "">
                                 </div>
                                 
                                     <div class="input-group d-flex mb-3">
@@ -238,7 +238,7 @@
                                     </div>
                                     <div class="input-group d-flex mb-3">
                                         <span class="input-group-text" id="basic-addon1">카테고리</span>
-                                        <select id = "categoryChoice"class="flex-fill border border-2 rounded">
+                                        <select id = "categoryChoice1"class="flex-fill border border-2 rounded">
                                             <option value = "상의">상의</option>
                                             <option value = "하의">하의</option>
                                             <option value = "겉옷">겉옷</option>
@@ -251,7 +251,7 @@
                                     </div>
                                     <div class="input-group d-flex mb-3">
                                         <span class="input-group-text" id="basic-addon1">계절</span>
-                                        <select id = "seasonChoice"class="flex-fill border border-2 rounded">
+                                        <select id = "seasonChoice1"class="flex-fill border border-2 rounded">
                                             <option value = "봄">봄</option>
                                             <option value = "여름">여름</option>
                                             <option value = "가을">가을</option>
@@ -270,7 +270,7 @@
                 <!-- /.container-fluid -->
                 <div class="mt-auto p-2 d-flex justify-content-end" aria-label="Page navigation example">
                     <input class="detailbtn btn btn-danger" type="submit" value="Submit">
-                    <a class = "detailbtn btn btn-secondary" data-toggle="modal" data-target="#deleteClotheModalToggle">delete</a>
+                    <a class = "detailbtn btn btn-secondary" id="clothes-del" data-toggle="modal" data-target="#deleteClotheModalToggle">delete</a>
                 </div>
             </div>
 
@@ -365,7 +365,7 @@
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">옷장이름</span>
                         <input type="text" id = "closetName-edit" class="form-control" placeholder="Closetname" aria-label="Closetname"
-                            aria-describedby="addon-wrapping">
+                            aria-describedby="addon-wrapping" value="">
                     </div>
                     <div id = "editCheck" class="form-check">
                         
@@ -375,7 +375,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id = "save-btn" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
+                    <button id = "save-btn-edit" class="btn btn-danger" type="button" data-dismiss="modal">save</button>
                 </div>
             </div>
         </div>
@@ -477,7 +477,7 @@
                 <div class="modal-body">
                     <h2 id = "text-del">삭제 확인 메세지</h2>
                     <div class="modal-footer">
-                        <input type="submit" id="save-btn-del" class="btn btn-danger" value="delete" data-dismiss="modal">
+                        <input type="submit" id="save-btn-del-clothes" class="btn btn-danger" value="delete" data-dismiss="modal">
                     </div>
                 </div>
             </div>

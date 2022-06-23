@@ -1,5 +1,8 @@
-// base
 
+const editClosetName=document.getElementById('closetName-edit11')
+var delcloset;
+var closetarr=[];
+const closetName = document.getElementById('closetName111');
 var closets=[]
 var target;
 var userId
@@ -170,7 +173,21 @@ function print_closet(){
     $(".btn-edit").click(function(){        
         target = $(this).parent().parent().prev().text();
         // '(기본)'문자열이 포함되어 있으면 제거한다.
+        console.log(target)
+
+        axios.get('http://localhost:8080/closet').then((Response) => {
+            data = Response.data;
+            for(var i = 0;i<data.length;i++){
+                if(userEmail==data[i].closetUser&&target==data[i].closetName){
+                    editcloset=data[i].id
+                    console.log(editcloset)
+                 }
+                  
+            
+             
         
+            }
+            } );
         
         var form_check = $("#editCheck");
         var check_box = document.createElement("input");
@@ -184,30 +201,92 @@ function print_closet(){
         $("#closetName-edit").val(target);
         $("#editText").before(check_box);
         console.log($("#default_closet_checkbox"));
+        
+        $("save-btn-closet").click(async function(){
+            console.log(target)
+            try {
+                let res = await axios({
+                   method: 'PUT',
+                   url: 'http://localhost:8080/closet/'+editcloset,
+                   data: {
+                        closetUser: userEmail,
+                        closetName: editClosetName.value
+                        
+                   },
+                });
+              } catch (err) {
+                console.log(err);
+                throw new Error(err);
+              }
+        
+        
+            location.reload();
+    
 
+        });
     });
 
     $(".btn-del").click(function(){        
         target = $(this).parent().parent().prev().text();
         var text = "옷장 "+ target + " 을(를) 삭제하시겠습니까?"
         $("#text-del").text(text);
+
+        axios.get('http://localhost:8080/closet').then((Response) => {
+        data = Response.data;
+        for(var i = 0;i<data.length;i++){
+            if(userEmail==data[i].closetUser&&target==data[i].closetName){
+                delcloset=data[i].id
+             }
+              
+            
+         
+    
+        }
+        } );
+
+        $("#save-btn-del-closet").click(async function(){
+            console.log(delcloset)    
+            console.log(target)
+            try {
+                let res = await axios({
+                   method: 'DELETE',
+                   url: 'http://localhost:8080/closet/'+ delcloset,
+                   data: {
+                        
+                   },
+                });
+              } catch (err) {
+                console.log(err);
+                throw new Error(err);
+              }
+        
+        
+            location.reload();
+        });
     });
 }
 
-$("#save-btn").click(function(){
-  /*  var text = $("#closetName").val();
-    if($("#default_closet_hceckbox").is(":checked")){
-        closets.unshift(text);
+$("#save-btn-closet").click(async function () {
+    console.log(userEmail)
+    console.log(closetName.value)
+    try {
+      let res = await axios({
+         method: 'POST',
+         url: 'http://localhost:8080/closet',
+         data: {
+            closetUser: userEmail,
+            closetName: closetName.value
+         },
+      });
+    } catch (err) {
+      console.log(err);
+      throw new Error(err);
     }
-
-    else{
-        closets.push(text);
-    }*/
-
+    
     // 입력 초기화
-    $("#closetName").val("");
+    $("#closetName111").val("");
     $("#default_closet_checkbox").prop("checked", false);
-
+    location.reload()
     // 같은이름이 있으면
     // if(1){
     //     alert("이미 존재하는 이름입니다.");
@@ -218,14 +297,7 @@ $("#save-btn").click(function(){
     // location.reload();
 });
 
-$("#save-btn-del").click(function(){
-    closets = closets.filter(function(item) {
-        return item !== target;
-    });
-    
-    //서버에 업데이트 필요
-    location.reload();
-});
+
 
 $("#save-btn-clothe-del").click(function(){
     closets = closets.filter(function(item) {
@@ -254,3 +326,8 @@ for(var i = 0;i<closets.length;i++){
 
 }
 // end of base
+$("save-btn-edit").click(function(){
+    
+    
+
+});
