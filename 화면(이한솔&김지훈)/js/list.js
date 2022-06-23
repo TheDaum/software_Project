@@ -238,7 +238,9 @@ function print_card(page_index) {
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html"+escape(userId.substring(userId.indexOf("id",0)+"&?clothesId="+totalarr[result_index++].totalId)));
+            console.log("1")
+
+            $(button).attr("href", "detail.html"+userId.substring(userId.indexOf("?id",0))+"&?clothesId="+totalarr[result_index++].totalId);
             card.append(button);
         }
     }
@@ -279,7 +281,7 @@ function print_card_last() {
             $(img).attr("src", path);
 
 
-            shadow.append(img);g
+            shadow.append(img);
 
             var card = document.createElement("div");
             card.classList.add("card-body");
@@ -293,10 +295,13 @@ function print_card_last() {
 
             var button = document.createElement("a");
 
-            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
+            
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
+            //$(button).attr("href", "detail.html"+escape(userId.substring(userId.indexOf("id",0)+"&?clothesId="+totalarr[result_index++].totalId)));
+            console.log("1")
+            $(button).attr("href", "detail.html"+userId.substring(userId.indexOf("?id",0))+"&?clothesId="+totalarr[result_index++].totalId);
             card.append(button);
 
         }

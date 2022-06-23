@@ -202,7 +202,7 @@ function print_closet(){
         $("#editText").before(check_box);
         console.log($("#default_closet_checkbox"));
         
-        $("save-btn-closet").click(async function(){
+        $("#save-btn").click(async function(){
             console.log(target)
             try {
                 let res = await axios({

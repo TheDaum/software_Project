@@ -86,7 +86,7 @@ console.log(userId)
 
 
     });
-    $("#save-btn-del").click(async function(){
+    $("#btn-submit").click(async function(){
         console.log(totalobj.totalId)
         try {
             let res = await axios({
@@ -203,7 +203,7 @@ $("#save-btn-del-clothes").click(async function(){
     else if(prevpagetype==2){
         window.location.href = "closet.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
     }
-});
+
     console.log(totalobj.totalId)
     try {
         let res = await axios({
@@ -224,4 +224,4 @@ $("#save-btn-del-clothes").click(async function(){
       
 });
 
-
+});
