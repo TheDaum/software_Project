@@ -234,11 +234,11 @@ function print_card(page_index) {
             card.append(title);
 
             var button = document.createElement("a");
-            $(button).attr("href", "detail.html?id="+(Id)+"&?clothesId="+totalarr[result_index++].totalId);
+            
             button.classList.add("btn");
             button.classList.add("btn-danger");
             button.innerText = "show details";
-            $(button).attr("href", "detail.html?id="+Id+"&?clothesId="+totalarr[result_index++].totalId);
+            $(button).attr("href", "detail.html"+userId.substring(userId.indexOf("id",0)+"&?clothesId="+totalarr[result_index++].totalId));
             card.append(button);
         }
     }

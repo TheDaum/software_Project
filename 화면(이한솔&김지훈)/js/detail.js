@@ -15,6 +15,7 @@ var priority;
 var result=[];
 var idd;
 var userEmail;
+var prevpagetype
 $(document).ready(function(){
     userId = location.href
     
@@ -22,12 +23,18 @@ $(document).ready(function(){
     if (userId.indexOf("id", 0) != -1) {
         Id = userId.substring(userId.indexOf("id", 0) + 3,userId.indexOf("&", 0));
         
-        
-
     }
 
     var address = unescape(location.href);
 
+    if(address.indexOf("category")!=-1){
+        prevpagetype=0;
+    }
+    else if(address.indexOf("season")!=-1){
+        prevpagetype=1;
+    }if(address.indexOf("name")!=-1){
+        prevpagetype=2;
+    }
     if(address.indexOf("clothesId", 0) != -1) {
         var txt = userId.substring(userId.indexOf("clothesId", 0)+10);
         
@@ -151,4 +158,9 @@ $(document).ready(function(){
         },1000);
 
      
+});
+$("#btn-del-clothe").click(function(){
+    if(prevpagetype==0){
+        location.href = "category.html"+userId.substring(userId.indexOf(id,0),userId.indexOf("&clothesId",0));
+    }
 });
