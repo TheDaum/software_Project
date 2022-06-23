@@ -318,13 +318,7 @@ $("#addClotheBtn").click(function(){
     }
 
 });
-for(var i = 0;i<closets.length;i++){
-    var item = document.createElement("option");
-    $(item).attr("value",closets[i]);
-    $(item).text(closets[i]);
-    $("#closetChoice").append(item);
 
-}
 // end of base
 $("save-btn-edit").click(function(){
     
