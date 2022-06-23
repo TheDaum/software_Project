@@ -27,12 +27,13 @@ $(document).ready(function(){
 
     var address = unescape(location.href);
 
-    if(address.indexOf("category")!=-1){
+    if(address.indexOf("category",0)!=-1){
         prevpagetype=0;
     }
-    else if(address.indexOf("season")!=-1){
+    else if(address.indexOf("season",0)!=-1){
         prevpagetype=1;
-    }if(address.indexOf("name")!=-1){
+    }
+    else if(address.indexOf("name",0)!=-1){
         prevpagetype=2;
     }
     if(address.indexOf("clothesId", 0) != -1) {
@@ -161,6 +162,12 @@ $(document).ready(function(){
 });
 $("#btn-del-clothe").click(function(){
     if(prevpagetype==0){
-        location.href = "category.html"+userId.substring(userId.indexOf(id,0),userId.indexOf("&clothesId",0));
+        location.href = "category.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    }
+    else if(prevpagetype==0){
+        location.href = "season.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
+    }
+    else if(prevpagetype==0){
+        location.href = "closet.html"+userId.substring(userId.indexOf("?id",0),userId.indexOf("&?clothesId",0));
     }
 });
